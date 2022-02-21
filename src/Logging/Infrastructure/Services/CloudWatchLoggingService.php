@@ -1,10 +1,10 @@
 <?php
 
-namespace Svc\Logging\Infrastructure\Services;
+namespace CVLB\Svc\Logging\Infrastructure\Services;
 
-use Svc\Auth\Providers\AuthServiceProvider;
-use Svc\Logging\Contracts\LogService;
-use Svc\Logging\Domain\Exceptions\LogException;
+use CVLB\Svc\Auth\Providers\AuthServiceProvider;
+use CVLB\Svc\Logging\Contracts\LogService;
+use CVLB\Svc\Logging\Domain\Exceptions\LogException;
 
 /**
  * Uses SVC Logging 
@@ -47,7 +47,7 @@ class CloudWatchLoggingService implements LogService
      * @return string
      * @throws LogException
      */
-    public function log(string $message, int $level = \Monolog\Logger::INFO): string
+    public function log(string $message, int $level = 200): string
     {
         return $this->doCurl($this->endpoint . '/queue-msg', $this->setData($message, $level));
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Svc\Logging\Domain\Exceptions;
+namespace CVLB\Svc\Logging\Domain\Exceptions;
 
 use Exception;
 

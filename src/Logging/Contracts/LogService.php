@@ -1,6 +1,6 @@
 <?php
 
-namespace Svc\Logging\Contracts;
+namespace CVLB\Svc\Logging\Contracts;
 
 interface LogService
 {

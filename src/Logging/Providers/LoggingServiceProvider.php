@@ -1,10 +1,10 @@
 <?php
 
-namespace Svc\Logging\Providers;
+namespace CVLB\Svc\Logging\Providers;
 
-use Svc\Auth\Providers\AuthServiceProvider;
-use Svc\Logging\Domain\Exceptions\LogException;
-use Svc\Logging\Infrastructure\Services\CloudWatchLoggingService;
+use CVLB\Svc\Auth\Providers\AuthServiceProvider;
+use CVLB\Svc\Logging\Domain\Exceptions\LogException;
+use CVLB\Svc\Logging\Infrastructure\Services\CloudWatchLoggingService;
 
 class LoggingServiceProvider
 {
@@ -28,7 +28,7 @@ class LoggingServiceProvider
      * @return string
      * @throws LogException
      */
-    public function log(string $message, int $level = \Monolog\Logger::INFO): string
+    public function log(string $message, int $level = 200): string
     {
         return $this->service->log($message, $level);
     }

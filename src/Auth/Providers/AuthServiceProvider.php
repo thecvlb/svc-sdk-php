@@ -1,9 +1,9 @@
 <?php
 
-namespace Svc\Auth\Providers;
+namespace CVLB\Svc\Auth\Providers;
 
 use Redis;
-use Svc\Auth\Infrastructure\Services\CognitoService;
+use CVLB\Svc\Auth\Infrastructure\Services\CognitoService;
 
 class AuthServiceProvider
 {

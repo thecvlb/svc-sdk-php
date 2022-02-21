@@ -1,6 +1,6 @@
 <?php
 
-namespace Svc\Auth\Contracts;
+namespace CVLB\Svc\Auth\Contracts;
 
 interface AuthService
 {

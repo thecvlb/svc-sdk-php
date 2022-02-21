@@ -1,15 +1,15 @@
 <?php
 
-namespace Svc\Logging;
+namespace CVLB\Svc\Logging;
 
 use DI\DependencyException;
 use DI\NotFoundException;
 use Exception;
-use Svc\Logging\Providers\LoggingServiceProvider;
-use Svc\SvcClient;
+use CVLB\Svc\Logging\Providers\LoggingServiceProvider;
+use CVLB\Svc\SvcClient;
 
 /**
- * @method LoggingServiceProvider log (string $message, int $level = \Monolog\Logger::INFO)
+ * @method LoggingServiceProvider log (string $message, int $level = 200)
  */
 class LoggingClient extends SvcClient
 {

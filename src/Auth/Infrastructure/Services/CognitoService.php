@@ -1,9 +1,9 @@
 <?php
 
-namespace Svc\Auth\Infrastructure\Services;
+namespace CVLB\Svc\Auth\Infrastructure\Services;
 
 use Redis;
-use Svc\Auth\Contracts\AuthService as AuthServiceContract;
+use CVLB\Svc\Auth\Contracts\AuthService as AuthServiceContract;
 
 class CognitoService implements AuthServiceContract
 {

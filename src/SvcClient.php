@@ -1,6 +1,6 @@
 <?php
 
-namespace Svc;
+namespace CVLB\Svc;
 
 use DI\Container;
 use DI\ContainerBuilder;
@@ -8,7 +8,7 @@ use DI\DependencyException;
 use DI\NotFoundException;
 use Exception;
 use Redis;
-use Svc\Auth\Providers\AuthServiceProvider;
+use CVLB\Svc\Auth\Providers\AuthServiceProvider;
 use function DI\autowire;
 
 class SvcClient
