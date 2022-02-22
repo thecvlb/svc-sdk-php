@@ -46,7 +46,7 @@ class AuthService
         $this->endpoint = $this->auth_endpoints[$_ENV['APP_ENV']] ?? $this->auth_endpoints['development'];
         $this->credentials = $credentials;
         $this->cache = $redis;
-        $this->cache->connect($_ENV['REDIS_HOST'] ?? 'redis');
+        $this->cache->connect($_ENV['REDIS_HOST'] ?? 'localhost');
     }
 
     /**
