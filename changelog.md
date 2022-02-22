@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
-## [0.0.0] - 2022-02-21
+## [1.0.0] - 2022-02-22
 ### Added
-- Add Cognito Auth Service
-- Add CloudWatch Logging Service
+- Create sdk
+- Add  Logging Service

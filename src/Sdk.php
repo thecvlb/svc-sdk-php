@@ -53,7 +53,7 @@ final class Sdk
         return $this->clientBuilder->getHttpClient();
     }
 
-    public function logger(): Logging
+    public function logging(): Logging
     {
         return new Logging($this);
     }

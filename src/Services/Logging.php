@@ -16,7 +16,7 @@ class Logging
         $this->sdk = $sdk;
     }
 
-    public function log(string $message, int $level = 200): array
+    public function put(string $message, int $level = 200): array
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post($this->base_uri . '/queue-msg', [], json_encode($this->setData($message, $level))));
     }
