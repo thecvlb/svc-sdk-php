@@ -1,11 +1,10 @@
 <?php
 
-namespace CVLB\Svc\Auth\Infrastructure\Services;
+namespace CVLB\Svc\Api;
 
 use Redis;
-use CVLB\Svc\Auth\Contracts\AuthService as AuthServiceContract;
 
-class CognitoService implements AuthServiceContract
+class AuthService
 {
     /**
      * @var array
@@ -22,14 +21,14 @@ class CognitoService implements AuthServiceContract
     private string $endpoint;
 
     /**
-     * Cognito credentials     
+     * Cognito credentials
      * @var array{client_id: string, client_secret: string}
      */
     private array $credentials;
-    
-    
+
+
     /**
-     * @var Redis 
+     * @var Redis
      */
     private Redis $cache;
 
@@ -47,7 +46,7 @@ class CognitoService implements AuthServiceContract
         $this->endpoint = $this->auth_endpoints[$_ENV['APP_ENV']] ?? $this->auth_endpoints['development'];
         $this->credentials = $credentials;
         $this->cache = $redis;
-        $this->cache->connect($_ENV['REDIS_HOST']);
+        $this->cache->connect($_ENV['REDIS_HOST'] ?? 'redis');
     }
 
     /**
@@ -65,11 +64,11 @@ class CognitoService implements AuthServiceContract
     {
         if ($access_token = $this->cache->get($this->access_token_key))
             return $access_token;
-        
+
         $jwt = $this->getJwt($this->endpoint . "/oauth2/token", $this->credentials['client_id'], $this->credentials['client_secret']);
-        
+
         $this->storeAccessToken($jwt['access_token'], $jwt['expires_in']);
-        
+
         return $jwt['access_token'];
     }
 
@@ -96,7 +95,7 @@ class CognitoService implements AuthServiceContract
     {
         $this->cache->set($this->access_token_key, $access_token, $expires_in);
     }
-    
+
     /**
      * @param string $client_id
      * @return array
@@ -110,7 +109,7 @@ class CognitoService implements AuthServiceContract
 
         return $fields;
     }
-    
+
     /**
      * @param string $client_id
      * @param string $client_secret
