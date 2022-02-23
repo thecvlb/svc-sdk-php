@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.1.0] - 2022-02-23
+### Added
+- Added tests
+
 ## [1.0.0] - 2022-02-22
 ### Added
 - Create sdk
