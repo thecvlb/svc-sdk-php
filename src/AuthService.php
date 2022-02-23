@@ -2,6 +2,8 @@
 
 namespace CVLB\Svc\Api;
 
+use CVLB\Svc\Api\Auth\AuthToken;
+use Exception;
 use Redis;
 
 class AuthService
@@ -43,7 +45,7 @@ class AuthService
      */
     public function __construct(Redis $redis, array $credentials)
     {
-        $this->endpoint = $this->auth_endpoints[$_ENV['APP_ENV']] ?? $this->auth_endpoints['development'];
+        $this->endpoint = $this->auth_endpoints[$_ENV['APP_ENV'] ?? 'development'];
         $this->credentials = $credentials;
         $this->cache = $redis;
         $this->cache->connect($_ENV['REDIS_HOST'] ?? 'localhost');
@@ -59,31 +61,38 @@ class AuthService
 
     /**
      * @return string
+     * @throws Exception
      */
     public function getAccessToken(): string
     {
         if ($access_token = $this->cache->get($this->access_token_key))
             return $access_token;
 
-        $jwt = $this->getJwt($this->endpoint . "/oauth2/token", $this->credentials['client_id'], $this->credentials['client_secret']);
+        $authToken = $this->getJwt($this->endpoint . "/oauth2/token", $this->credentials['client_id'], $this->credentials['client_secret']);
 
-        $this->storeAccessToken($jwt['access_token'], $jwt['expires_in']);
+        $this->storeAccessToken($authToken->getToken(), $authToken->getExpire());
 
-        return $jwt['access_token'];
+        return $authToken->getToken();
     }
 
     /**
      * @param string $endpoint
      * @param string $client_id
      * @param string $client_secret
-     * @return array
+     * @return AuthToken
+     * @throws Exception
      */
-    private function getJwt(string $endpoint, string $client_id, string $client_secret): array
+    private function getJwt(string $endpoint, string $client_id, string $client_secret): AuthToken
     {
-        $headers = self::setHeaders($client_id, $client_secret);
-        $fields = self::setBody($client_id);
+        $headers = $this->setHeaders($client_id, $client_secret);
+        $fields = $this->setBody($client_id);
 
-        return json_decode(self::makeCurlRequest($endpoint, $headers, $fields), true);
+        $response = json_decode($this->makeCurlRequest($endpoint, $headers, $fields), true);
+
+        if (isset($response['error']))
+            throw new Exception($response['error']);
+
+        return new AuthToken($response);
     }
 
     /**
@@ -100,7 +109,7 @@ class AuthService
      * @param string $client_id
      * @return array
      */
-    private static function setBody(string $client_id): array
+    private function setBody(string $client_id): array
     {
         $fields = [
             'client_id' => $client_id,
@@ -115,7 +124,7 @@ class AuthService
      * @param string $client_secret
      * @return array
      */
-    private static function setHeaders(string $client_id, string $client_secret): array
+    private function setHeaders(string $client_id, string $client_secret): array
     {
         return [
             'Content-Type: application/x-www-form-urlencoded',
@@ -129,7 +138,7 @@ class AuthService
      * @param array $fields
      * @return string
      */
-    private static function makeCurlRequest(string $endpoint, array $headers, array $fields): string
+    public function makeCurlRequest(string $endpoint, array $headers, array $fields): string
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL,$endpoint);

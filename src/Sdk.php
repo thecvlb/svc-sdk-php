@@ -9,7 +9,7 @@ use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Message\UriFactory;
 
-final class Sdk
+class Sdk
 {
     private ClientBuilder $clientBuilder;
     private AuthService $auth;
