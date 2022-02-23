@@ -1,0 +1,50 @@
+name: Test Suite
+
+on: push
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      # Send notification
+      - name: Start Notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow,job,commit,repo,ref,author
+          custom_payload: |
+              {
+                text: `:mega: ${process.env.AS_WORKFLOW}: ${process.env.AS_JOB}\n\n *START* Action\n\n*Repo* ${process.env.AS_REPO}\n*Commit* ${process.env.AS_COMMIT}\n*Ref* ${process.env.AS_REF}\n*Author* ${process.env.AS_AUTHOR}`
+              }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.GITHUBACTIONS_SLACK_WEBHOOK_URL }}
+
+      # Set PHP version
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      # Validate composer.json
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      # Run composer install
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      # Run PHP Unit
+      - name: PHPUnit
+        run: vendor/bin/phpunit --verbose --coverage-text
+          
+      # Send notification
+      - name: Completed Notification
+        uses: 8398a7/action-slack@v3
+        with:
+            status: ${{ job.status }}
+            fields: workflow,repo,commit,ref
+        env:
+            SLACK_WEBHOOK_URL: ${{ secrets.GITHUBACTIONS_SLACK_WEBHOOK_URL }}
+        if: always() # runs even on fail or cancel

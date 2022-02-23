@@ -51,16 +51,16 @@ class Logging
      */
     private function findInstanceIp(): ?string
     {
-        return $_SERVER['SERVER_ADDR'] ?? $this->getIpFromShell();
+        return $_SERVER['SERVER_ADDR'] ?? $this->getHostname();
     }
 
     /**
      * Get ip from hostname
      * @return string|null
      */
-    private function getIpFromShell(): ?string
+    private function getHostname(): ?string
     {
-        $ips = explode(' ', shell_exec('hostname -I'));
-        return $ips[0] ?? null;
+        $ips = explode(' ', shell_exec('hostname'));
+        return str_replace(' ', '_', $ips[0]) ?? null;
     }
 }
