@@ -26,6 +26,7 @@ class SdkTest extends TestCase
 
     public function testLogging()
     {
+        $_ENV['APP_ENV'] = 'local';
         $mockAuthService = Mockery::mock(AuthService::class);
         $mockAuthService->allows('getAccessToken');
 

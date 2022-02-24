@@ -7,6 +7,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.1.1] - 2022-02-23
+### Updated
+- Updated default endpoints
+- Add env based endpoint for Logging
+- Add missing PHPDoc
+
 ## [1.1.0] - 2022-02-23
 ### Added
 - Added tests

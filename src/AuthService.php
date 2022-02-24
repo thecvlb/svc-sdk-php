@@ -12,6 +12,7 @@ class AuthService
      * @var array
      */
     private array $auth_endpoints = [
+        'local' =>          'https://svc-lifemd-dev.auth.us-west-2.amazoncognito.com',
         'development' =>    'https://svc-lifemd-dev.auth.us-west-2.amazoncognito.com',
         'staging' =>        'https://svc-lifemd-staging.auth.us-west-2.amazoncognito.com',
         'production' =>     'https://svc-lifemd.auth.us-west-2.amazoncognito.com',
@@ -27,7 +28,6 @@ class AuthService
      * @var array{client_id: string, client_secret: string}
      */
     private array $credentials;
-
 
     /**
      * @var Redis
@@ -45,7 +45,7 @@ class AuthService
      */
     public function __construct(Redis $redis, array $credentials)
     {
-        $this->endpoint = $this->auth_endpoints[$_ENV['APP_ENV'] ?? 'development'];
+        $this->endpoint = $this->auth_endpoints[$_ENV['APP_ENV']] ?? $this->auth_endpoints['development'];
         $this->credentials = $credentials;
         $this->cache = $redis;
         $this->cache->connect($_ENV['REDIS_HOST'] ?? 'localhost');

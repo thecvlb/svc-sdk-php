@@ -4,23 +4,55 @@ namespace CVLB\Svc\Api\Services;
 
 use CVLB\Svc\Api\HttpClient\Message\ResponseMediator;
 use CVLB\Svc\Api\Sdk;
+use Http\Client\Exception;
 
 class Logging
 {
+    /**
+     * @var Sdk
+     */
     private Sdk $sdk;
 
-    private string $base_uri = 'https://svc.logging.dev.prm-lfmd.com/api/v1/log';
+    /**
+     * @var string
+     */
+    private string $base_uri;
 
+    /**
+     * @var array
+     */
+    private array $logging_endpoints = [
+        'local' =>          'https://svc.logging.dev.prm-lfmd.com/api/v1/log',
+        'development' =>    'https://svc.logging.dev.prm-lfmd.com/api/v1/log',
+        'staging' =>        'https://svc.logging.staging.prm-lfmd.com/api/v1/log',
+        'production' =>     'https://svc.logging.prm-lfmd.com/api/v1/log',
+    ];
+
+    /**
+     * @param Sdk $sdk
+     */
     public function __construct(Sdk $sdk)
     {
         $this->sdk = $sdk;
+        $this->base_uri = $this->logging_endpoints[$_ENV['APP_ENV']] ?? $this->logging_endpoints['development'];
     }
 
+    /**
+     * @param string $message
+     * @param int $level
+     * @return array
+     * @throws Exception
+     */
     public function put(string $message, int $level = 200): array
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post($this->base_uri . '/queue-msg', [], json_encode($this->setData($message, $level))));
     }
 
+    /**
+     * @param string $message
+     * @param int $level
+     * @return array
+     */
     private function setData(string $message, int $level): array
     {
         return [

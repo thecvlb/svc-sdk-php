@@ -15,6 +15,7 @@ class LoggingTest extends TestCase
 
     public function testPut()
     {
+        $_ENV['APP_ENV'] = 'local';
         $mockStream = Mockery::mock(StreamInterface::class);
         $mockStream->shouldReceive('getContents')->andReturn(json_encode(['OK']));
 
