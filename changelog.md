@@ -7,7 +7,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
-## [1.1.1] - 2022-02-23
+## [1.2.0] - 2022-02-24
+### Updated
+- Updated Logging arguments with context array
+- Updated readme
+
+## [1.1.1] - 2022-02-24
 ### Updated
 - Updated default endpoints
 - Add env based endpoint for Logging

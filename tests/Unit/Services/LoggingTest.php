@@ -39,7 +39,7 @@ class LoggingTest extends TestCase
 
         unset($_SERVER['SERVER_ADDR']);
         $logging = new Logging($mockSdk);
-        $response = $logging->put('string', 123);
+        $response = $logging->put('string', ['test'=>'data'], 123);
 
         $this->assertIsArray($response);
     }

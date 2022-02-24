@@ -39,13 +39,14 @@ class Logging
 
     /**
      * @param string $message
+     * @param array $context
      * @param int $level
      * @return array
      * @throws Exception
      */
-    public function put(string $message, int $level = 200): array
+    public function put(string $message, array $context = [], int $level = 200): array
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post($this->base_uri . '/queue-msg', [], json_encode($this->setData($message, $level))));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post($this->base_uri . '/queue-msg', [], json_encode($this->setData($message, $context, $level))));
     }
 
     /**
@@ -53,28 +54,32 @@ class Logging
      * @param int $level
      * @return array
      */
-    private function setData(string $message, int $level): array
+    private function setData(string $message, array $context, int $level): array
     {
         return [
             'message' => $message,
             'level' => $level,
-            'context' => $this->getContext()
+            'context' => $this->getContext($context)
         ];
     }
 
     /**
-     * Get meta data for logs
+     * Get merge meta data for logs
+     * @param array $context
      * @return array
      */
-    private function getContext(): array
+    private function getContext(array $context): array
     {
-        return [
-            "client_id" => $this->sdk->getAUth()->getClientId(),
-            "app_name" => $_ENV['APP_NAME'] ?? 'UnknownApp',
-            "app_env" => $_ENV['APP_ENV'] ??  'UnknownEnv',
-            "source_ip" => $this->findInstanceIp(),
-            "user_agent" => $_SERVER['HTTP_USER_AGENT'] ?? ''
-        ];
+        return array_merge(
+            $context,
+            [
+                "client_id" => $this->sdk->getAUth()->getClientId(),
+                "app_name" => $_ENV['APP_NAME'] ?? 'UnknownApp',
+                "app_env" => $_ENV['APP_ENV'] ??  'UnknownEnv',
+                "source_ip" => $this->findInstanceIp(),
+                "user_agent" => $_SERVER['HTTP_USER_AGENT'] ?? ''
+            ]
+        );
     }
 
     /**
