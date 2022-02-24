@@ -44,6 +44,18 @@ The following services and endpoints are available.
 
 SVC Logging service allows you to send your application logs entries to a central repository. Documentation can be found at https://documenter.getpostman.com/view/16680838/UVeGpQY7
 
+#### Sample Requests
 ```php
-$response = $svc->logging()->put('Log this message');
+$svc->logging()->put('Log this message');
+
+\Exception $exception
+$svc->logging()->put($exception->getMessage(), $exception->getTrace(), $exception->getCode());
+```
+#### Response
+```json
+{
+  "success": true,
+  "code": 200,
+  "message": "OK"
+}
 ```
