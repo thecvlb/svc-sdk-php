@@ -15,6 +15,7 @@ class AuthServiceTest extends TestCase
 
     public function testGetClientId()
     {
+        $_ENV['APP_ENV'] = 'local';
         $mockRedis = Mockery::mock(\Redis::class);
         $mockRedis->shouldReceive('connect')->once();
 
@@ -25,6 +26,7 @@ class AuthServiceTest extends TestCase
 
     public function testGetAccessTokenFromCache()
     {
+        $_ENV['APP_ENV'] = 'local';
         $expectedValue = 'teststring';
 
         $mockRedis = Mockery::mock(\Redis::class);
@@ -39,6 +41,7 @@ class AuthServiceTest extends TestCase
 
     public function testGetAccessTokenFromCognito()
     {
+        $_ENV['APP_ENV'] = 'local';
         $jwt = ['access_token' => 'test', 'expires_in' => 10];
 
         $mockRedis = Mockery::mock(\Redis::class);
@@ -59,6 +62,7 @@ class AuthServiceTest extends TestCase
 
     public function testGetAccessTokenInvalid()
     {
+        $_ENV['APP_ENV'] = 'local';
         $mockRedis = Mockery::mock(\Redis::class);
         $mockRedis->allows('connect');
         $mockRedis->allows('get');
