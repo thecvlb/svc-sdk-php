@@ -11,7 +11,7 @@ class AuthService
     /**
      * @var array
      */
-    private array $auth_endpoints = [
+    private $auth_endpoints = [
         'local' =>          'https://svc-lifemd-dev.auth.us-west-2.amazoncognito.com',
         'development' =>    'https://svc-lifemd-dev.auth.us-west-2.amazoncognito.com',
         'staging' =>        'https://svc-lifemd-staging.auth.us-west-2.amazoncognito.com',
@@ -21,18 +21,18 @@ class AuthService
     /**
      * @var string
      */
-    private string $endpoint;
+    private $endpoint;
 
     /**
      * Cognito credentials
      * @var array{client_id: string, client_secret: string}
      */
-    private array $credentials;
+    private $credentials;
 
     /**
      * @var Redis
      */
-    private Redis $cache;
+    private $cache;
 
     /**
      * @var string

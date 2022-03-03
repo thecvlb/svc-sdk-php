@@ -14,12 +14,12 @@ class Sdk
     /**
      * @var ClientBuilder
      */
-    private ClientBuilder $clientBuilder;
+    private $clientBuilder;
 
     /**
      * @var AuthService
      */
-    private AuthService $auth;
+    private $auth;
 
     /**
      * @param AuthService $authService

@@ -2,7 +2,7 @@
     "name": "thecvlb/svc-sdk-php",
     "description": "SVC SDK for PHP - Use LifeMD Services in your PHP project",
     "require": {
-        "laminas/laminas-diactoros": "^2.8",
+        "laminas/laminas-diactoros": "^2.4",
         "psr/http-factory": "^1.0",
         "psr/http-client": "^1.0",
         "php-http/client-common": "^2.5",

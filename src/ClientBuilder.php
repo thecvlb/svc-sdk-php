@@ -14,9 +14,9 @@ use Psr\Http\Message\StreamFactoryInterface;
 
 class ClientBuilder
 {
-    private ClientInterface $httpClient;
-    private RequestFactoryInterface $requestFactoryInterface;
-    private StreamFactoryInterface $streamFactoryInterface;
+    private $httpClient;
+    private $requestFactoryInterface;
+    private $streamFactoryInterface;
 
     private array $plugins = [];
 

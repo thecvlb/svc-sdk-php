@@ -11,17 +11,17 @@ class Logging
     /**
      * @var Sdk
      */
-    private Sdk $sdk;
+    private $sdk;
 
     /**
      * @var string
      */
-    private string $base_uri;
+    private $base_uri;
 
     /**
      * @var array
      */
-    private array $logging_endpoints = [
+    private $logging_endpoints = [
         'local' =>          'https://svc.logging.dev.prm-lfmd.com/api/v1/log',
         'development' =>    'https://svc.logging.dev.prm-lfmd.com/api/v1/log',
         'staging' =>        'https://svc.logging.staging.prm-lfmd.com/api/v1/log',
