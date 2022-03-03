@@ -2,18 +2,18 @@
     "name": "thecvlb/svc-sdk-php",
     "description": "SVC SDK for PHP - Use LifeMD Services in your PHP project",
     "require": {
-        "laminas/laminas-diactoros": "2.4",
+        "php": "7.2.*",
+        "laminas/laminas-diactoros": "^2.4",
         "psr/http-factory": "^1.0",
         "psr/http-client": "^1.0",
         "php-http/client-common": "^2.5",
         "php-http/curl-client": "^2.2",
-        "ext-json": "*",
-        "ext-curl": "*",
-        "ext-redis": "*"
+        "ext-json": "^1.6",
+        "ext-curl": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "mockery/mockery": "^1.5",
+        "phpunit/phpunit": "^8.5",
+        "mockery/mockery": "^1.3",
         "php-http/mock-client": "^1.5"
     },
     "autoload": {

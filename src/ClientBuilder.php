@@ -18,7 +18,7 @@ class ClientBuilder
     private $requestFactoryInterface;
     private $streamFactoryInterface;
 
-    private array $plugins = [];
+    private $plugins = [];
 
     public function __construct(
         ClientInterface $httpClient = null,

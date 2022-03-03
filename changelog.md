@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.4.0] - 2022-03-03
+### Updated
+- Downgrade more packages for php 7.2
+
 ## [1.3.1] - 2022-03-03
 ### Updated
 - Downgrade laminas/laminas-diactoros to 2.4
