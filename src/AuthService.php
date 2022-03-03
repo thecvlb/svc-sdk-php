@@ -37,7 +37,7 @@ class AuthService
     /**
      * @var string
      */
-    private string $access_token_key = 'svclifemd-access-token';
+    private $access_token_key = 'svclifemd-access-token';
 
     /**
      * @param Redis $redis
