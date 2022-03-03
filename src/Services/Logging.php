@@ -51,6 +51,7 @@ class Logging
 
     /**
      * @param string $message
+     * @param array $context
      * @param int $level
      * @return array
      */
