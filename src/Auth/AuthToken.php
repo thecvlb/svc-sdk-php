@@ -7,12 +7,12 @@ class AuthToken
     /**
      * @var string
      */
-    private string $token;
+    private $token;
 
     /**
      * @var int
      */
-    private int $expires_in;
+    private $expires_in;
 
     /**
      * @param array $token
