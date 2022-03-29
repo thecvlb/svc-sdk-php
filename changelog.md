@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.4.1] - 2022-03-28
+### Changed
+- Remove specific ext-json version
+
 ## [1.4.0] - 2022-03-03
 ### Updated
 - Downgrade more packages for php 7.2
