@@ -42,11 +42,14 @@ class Logging
      * @param array $context
      * @param int $level
      * @return array
-     * @throws Exception
      */
     public function put(string $message, array $context = [], int $level = 200): array
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post($this->base_uri . '/queue-msg', [], json_encode($this->setData($message, $context, $level))));
+        try {
+            return ResponseMediator::getContent($this->sdk->getHttpClient()->post($this->base_uri . '/queue-msg', [], json_encode($this->setData($message, $context, $level))));
+        } catch (Exception $e) {
+            return ['success' => false, 'code' => 500, 'message' => $e->getMessage()];
+        }
     }
 
     /**
