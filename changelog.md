@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.6.0] - 2022-03-31
+### Changed
+- Logging service endpoint change for staging
+
 ## [1.5.0] - 2022-03-31
 ### Add
 - coverage report
