@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.7.0] - 2022-05-11
+### Changed
+- Auth service endpoint change for staging
+
 ## [1.6.1] - 2022-05-11
 ### Changed
 - Catch error on put() method
