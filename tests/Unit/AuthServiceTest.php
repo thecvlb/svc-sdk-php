@@ -21,6 +21,7 @@ class AuthServiceTest extends TestCase
 
         $authService = new AuthService($mockRedis, $this->credentials);
 
+        // The client ID we passed to service matches what the service passes back
         $this->assertEquals($this->credentials['client_id'], $authService->getClientId());
     }
 
@@ -36,6 +37,7 @@ class AuthServiceTest extends TestCase
 
         $authService = new AuthService($mockRedis, $this->credentials);
 
+        // AuthService fetches access token from cache
         $this->assertEquals($expectedValue, $authService->getAccessToken());
     }
 
@@ -57,6 +59,7 @@ class AuthServiceTest extends TestCase
             ->method('makeCurlRequest')
             ->willReturn(json_encode($jwt));
 
+        // AuthService fetches access token from Cognito
         $this->assertEquals($jwt['access_token'], $mockAuthService->getAccessToken());
     }
 
@@ -66,15 +69,12 @@ class AuthServiceTest extends TestCase
         $mockRedis = Mockery::mock(\Redis::class);
         $mockRedis->allows('connect');
         $mockRedis->allows('get');
+        $mockRedis->allows('set');
 
         $authService = new AuthService($mockRedis, $this->credentials);
 
-        try {
-            $authService->getAccessToken();
-        } catch (\Exception $e) {
-            $result = $e->getMessage();
-        }
+        $result = $authService->getAccessToken();
 
-        $this->assertEquals('invalid_client', $result);
+        $this->assertEmpty($result);
     }
 }
