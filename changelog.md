@@ -7,6 +7,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.8.0] - 2022-05-16
+### Changed
+- Handle token request errors
+- Catch logging request errors
+
 ## [1.7.0] - 2022-05-11
 ### Changed
 - Auth service endpoint change for staging

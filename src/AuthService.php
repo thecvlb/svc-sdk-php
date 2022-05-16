@@ -89,8 +89,25 @@ class AuthService
 
         $response = json_decode($this->makeCurlRequest($endpoint, $headers, $fields), true);
 
+        /*
+         * Error authenticating leave us nowhere to log.
+         * So log to PHP's system logger
+         */
         if (isset($response['error']))
-            throw new Exception($response['error']);
+            error_log($response['error']);
+
+        if (!$response || !isset($response['access_token']))
+        {
+            error_log("LifeMD SVC: failed to Auth client_id: $client_id at $endpoint");
+
+            /*
+             * Setting the response auth token to empty string that expires in 1 sec
+             * Sending an invalid access token will trigger log activity upon validation
+             * Short expiration will let the service try again the next time it's requested
+             */
+            $response['access_token'] = '';
+            $response['expires_in'] = 1;
+        }
 
         return new AuthToken($response);
     }
