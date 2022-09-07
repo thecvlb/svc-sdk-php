@@ -28,7 +28,7 @@ class Logging
     private static $logging_endpoints = [
         'local' =>          'https://svc.logging.dev.prm-lfmd.com',
         'development' =>    'https://svc.logging.dev.prm-lfmd.com',
-        'staging' =>        'https://svc.logging.stage.prm-lfmd.com',
+        'stage' =>        'https://svc.logging.stage.prm-lfmd.com',
         'production' =>     'https://svc.logging.prm-lfmd.com',
     ];
 

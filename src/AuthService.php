@@ -14,7 +14,7 @@ class AuthService
     private $auth_endpoints = [
         'local' =>          'https://svc-lifemd-dev.auth.us-west-2.amazoncognito.com',
         'development' =>    'https://svc-lifemd-dev.auth.us-west-2.amazoncognito.com',
-        'staging' =>        'https://svc-lifemd-stage.auth.us-west-2.amazoncognito.com',
+        'stage' =>        'https://svc-lifemd-stage.auth.us-west-2.amazoncognito.com',
         'production' =>     'https://svc-lifemd.auth.us-west-2.amazoncognito.com',
     ];
 
