@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.8.1] - 2022-09-07
+### Changed
+- Updated environment label from staging to stage
+
 ## [1.8.0] - 2022-05-16
 ### Changed
 - Handle token request errors
