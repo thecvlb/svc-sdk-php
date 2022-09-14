@@ -79,7 +79,7 @@ class Logging
             'message' => $message,
             'level' => $level,
             'context' => $this->getContext($context),
-            $this->getDataDogContext()
+            'dd' => $this->getDataDogContext()
         ];
     }
 
@@ -120,13 +120,13 @@ class Logging
         $func = '\DDTrace\current_context';
 
         // Top level element to be added to log record array
-        $dataDog = [ 'dd' => ['trace_id' => '', 'span_id'  => '']];
+        $dataDog = ['trace_id' => '', 'span_id'  => ''];
 
         // If DD agent, call current_context() to get the trace and span
         if (is_callable($func)) {
             $dd_context = call_user_func($func);
-            $dataDog['dd']['trace_id'] = $dd_context['trace_id'] ?? '';
-            $dataDog['dd']['span_id'] = $dd_context['span_id'] ?? '';
+            $dataDog['trace_id'] = $dd_context['trace_id'] ?? '';
+            $dataDog['span_id'] = $dd_context['span_id'] ?? '';
         }
 
         return $dataDog;
