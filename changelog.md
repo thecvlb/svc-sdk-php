@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [1.8.2] - 2022-09-14
+### Added
+- Add DataDog context to log record
+- 
 ## [1.8.1] - 2022-09-07
 ### Changed
 - Updated environment label from staging to stage

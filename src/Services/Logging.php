@@ -78,7 +78,8 @@ class Logging
         return [
             'message' => $message,
             'level' => $level,
-            'context' => $this->getContext($context)
+            'context' => $this->getContext($context),
+            'dd' => $this->getDataDogContext()
         ];
     }
 
@@ -99,6 +100,36 @@ class Logging
                 "user_agent" => $_SERVER['HTTP_USER_AGENT'] ?? ''
             ]
         );
+    }
+
+    /**
+     * Get trace and span ids from DataDog context
+     * Requires the DataDog agent to be installed on the server
+     * Will be empty values otherwise
+     *
+     * If DataDog is no longer used, this method
+     * and any calls to it should be removed
+     *
+     * @return array|string[][]
+     */
+    private function getDataDogContext(): array
+    {
+        /*
+         * This function is required
+         */
+        $func = '\DDTrace\current_context';
+
+        // Top level element to be added to log record array
+        $dataDog = ['trace_id' => '', 'span_id'  => ''];
+
+        // If DD agent, call current_context() to get the trace and span
+        if (is_callable($func)) {
+            $dd_context = call_user_func($func);
+            $dataDog['trace_id'] = $dd_context['trace_id'] ?? '';
+            $dataDog['span_id'] = $dd_context['span_id'] ?? '';
+        }
+
+        return $dataDog;
     }
 
     /**
