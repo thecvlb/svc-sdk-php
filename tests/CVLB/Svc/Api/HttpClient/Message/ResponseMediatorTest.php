@@ -2,10 +2,6 @@
 
 namespace CVLB\Svc\Api\HttpClient\Message;
 
-use CVLB\Svc\Api\AuthService;
-use CVLB\Svc\Api\ClientBuilder;
-use CVLB\Svc\Api\Sdk;
-use CVLB\Svc\Api\Services\Logging;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
