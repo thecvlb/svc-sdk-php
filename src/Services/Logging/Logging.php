@@ -1,6 +1,6 @@
 <?php
 
-namespace CVLB\Svc\Api\Services;
+namespace CVLB\Svc\Api\Services\Logging;
 
 use CVLB\Svc\Api\HttpClient\Message\ResponseMediator;
 use CVLB\Svc\Api\Sdk;
@@ -10,22 +10,22 @@ class Logging
     /**
      * @var Sdk
      */
-    private $sdk;
+    private Sdk $sdk;
 
     /**
      * @var string
      */
-    private static $base_uri;
+    private static string $base_uri;
 
     /**
      * @var string
      */
-    private $api_uri;
+    private string $api_uri;
 
     /**
      * @var array
      */
-    private static $logging_endpoints = [
+    private static array $logging_endpoints = [
         'local' =>          'https://svc.logging.dev.prm-lfmd.com',
         'development' =>    'https://svc.logging.dev.prm-lfmd.com',
         'stage' =>        'https://svc.logging.stage.prm-lfmd.com',
@@ -35,7 +35,7 @@ class Logging
     /**
      * @var string
      */
-    public static $version = '1';
+    public static string $version = '1';
 
     /**
      * @param Sdk $sdk
@@ -52,6 +52,7 @@ class Logging
      * @param array $context
      * @param int $level
      * @return array
+     * @throws \Http\Client\Exception
      */
     public function put(string $message, array $context = [], int $level = 200): array
     {
@@ -93,7 +94,7 @@ class Logging
         return array_merge(
             $context,
             [
-                "client_id" => $this->sdk->getAUth()->getClientId(),
+                "client_id" => $this->sdk->getAuth()->getClientId(),
                 "app_name" => $_ENV['APP_NAME'] ?? 'UnknownApp',
                 "app_env" => $_ENV['APP_ENV'] ?? 'UnknownEnv',
                 "source_ip" => $this->findInstanceIp(),

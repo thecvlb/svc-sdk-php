@@ -7,6 +7,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.0.0] - 2022-10-13
+### Added
+- Notify service
+
+### Changed
+- Updated logging tests
+- Refactored service file structure
+
 ## [1.8.2] - 2022-09-14
 ### Added
 - Add DataDog context to log record

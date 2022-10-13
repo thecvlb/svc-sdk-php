@@ -2,7 +2,8 @@
 
 namespace CVLB\Svc\Api;
 
-use CVLB\Svc\Api\Services\Logging;
+use CVLB\Svc\Api\Services\Logging\Logging;
+use CVLB\Svc\Api\Services\Notify\Notify;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
@@ -14,12 +15,17 @@ class Sdk
     /**
      * @var ClientBuilder
      */
-    private $clientBuilder;
+    private ClientBuilder $clientBuilder;
 
     /**
      * @var AuthService
      */
-    private $auth;
+    private AuthService $auth;
+
+    /**
+     * @var string
+     */
+    public string $app_name;
 
     /**
      * @param AuthService $authService
@@ -29,6 +35,7 @@ class Sdk
      */
     public function __construct(AuthService $authService, ClientBuilder $clientBuilder = null, UriFactory $uriFactory = null)
     {
+        $this->app_name = $_ENV['APP_NAME'] ?? "Unknown App";
         $this->auth = $authService;
         $this->clientBuilder = $clientBuilder ?: new ClientBuilder();
 
@@ -78,5 +85,13 @@ class Sdk
     public function logging(): Logging
     {
         return new Logging($this);
+    }
+
+    /**
+     * @return Notify
+     */
+    public function notify(): Notify
+    {
+        return new Notify($this);
     }
 }
