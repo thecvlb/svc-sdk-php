@@ -52,6 +52,7 @@ SVC Logging service allows you to send your application logs entries to a centra
 ```php
 $svc->logging()->put('Log this message');
 
+// Or an Exception
 \Exception $exception
 $svc->logging()->put($exception->getMessage(), $exception->getTrace(), $exception->getCode());
 ```
@@ -86,7 +87,9 @@ $svc->notify()->chat()->slack()->send($message, $destination);
 #### Response
 ```json
 {
-    "body": "Slack message received."
+  "success": true,
+  "code": 200,
+  "message": "Slack message received"
 }
 ```
 
@@ -113,7 +116,9 @@ $svc->notify()->email()->ses()->send($message, $destination);
 #### Response
 ```json
 {
-    "body": "Email message received."
+  "success": true,
+  "code": 200,
+  "message": "SES message received"
 }
 ```
 
@@ -140,7 +145,9 @@ $res = $svc->notify()->email()->sendpulse()->send( $message, $destination);
 #### Response
 ```json
 {
-    "body": "Email message received."
+  "success": true,
+  "code": 200,
+  "message": "SendPulse message received"
 }
 ```
 
@@ -159,6 +166,8 @@ $svc->notify()->sms()->twilio()->send($message, $destination);
 #### Response
 ```json
 {
-    "body": "SMS message received."
+  "success": true,
+  "code": 200,
+  "message": "Twilio message received"
 }
 ```
