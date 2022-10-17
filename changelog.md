@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.0.1] - 2022-10-14
+### Updated
+- Updated readme
+
 ## [2.0.0] - 2022-10-13
 ### Added
 - Notify service
