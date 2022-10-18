@@ -2,7 +2,7 @@
 
 Services SDK for PHP - Use LifeMD Services in your PHP project.
 
-![coverage](coverage_badge.svg "Coverage")
+![coverage](.coverage/coverage.svg "Coverage")
 
 ## Installation
 
