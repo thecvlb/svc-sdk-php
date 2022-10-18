@@ -5,6 +5,7 @@ on: push
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[ci]')"
     steps:
       - uses: actions/checkout@v2
         
@@ -42,13 +43,20 @@ jobs:
       # Run PHP Unit
       - name: PHPUnit
         run: vendor/bin/phpunit --verbose --coverage-text
-          
+
+      # Add coverage badge
+      - name: phpunit-coverage-badge
+        uses: timkrase/phpunit-coverage-badge@v1.2.0
+        with:
+          push_badge: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+
       # Send notification
       - name: Completed Notification
         uses: 8398a7/action-slack@v3
         with:
-            status: ${{ job.status }}
-            fields: workflow,repo,commit,ref
+          status: ${{ job.status }}
+          fields: workflow,repo,commit,ref
         env:
-            SLACK_WEBHOOK_URL: ${{ secrets.GITHUBACTIONS_SLACK_WEBHOOK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.GITHUBACTIONS_SLACK_WEBHOOK_URL }}
         if: always() # runs even on fail or cancel
