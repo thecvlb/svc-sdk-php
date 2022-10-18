@@ -68,7 +68,9 @@ final class SesService extends AbstractEmailService
         return [
             'from_name' => $destination['from_name'],
             'from_address' => $destination['from_address'],
+            'to_name' => $destination['to_name'] ?? '',
             'to_address' => $destination['to_address'],
+            'bcc' => $destination['bcc'] ?? [],
             'email_subject' => $message['email_subject'],
             'email_base64_html_message' => base64_encode($message['email_html_message']),
             'email_text_message' => $message['email_text_message'],

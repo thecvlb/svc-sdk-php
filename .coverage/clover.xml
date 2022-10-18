@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1666122623">
+  <project timestamp="1666122623">
+    <package name="CVLB\Svc\Api">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\AuthService.php">
+        <class name="CVLB\Svc\Api\AuthService" namespace="CVLB\Svc\Api">
+          <metrics complexity="12" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="48" coveredelements="48"/>
+        </class>
+        <line num="46" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="48" type="stmt" count="4"/>
+        <line num="49" type="stmt" count="4"/>
+        <line num="50" type="stmt" count="4"/>
+        <line num="51" type="stmt" count="4"/>
+        <line num="52" type="stmt" count="4"/>
+        <line num="57" type="method" name="getClientId" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="59" type="stmt" count="1"/>
+        <line num="66" type="method" name="getAccessToken" visibility="public" complexity="2" crap="2" count="3"/>
+        <line num="68" type="stmt" count="3"/>
+        <line num="69" type="stmt" count="1"/>
+        <line num="71" type="stmt" count="2"/>
+        <line num="73" type="stmt" count="2"/>
+        <line num="75" type="stmt" count="2"/>
+        <line num="85" type="method" name="getJwt" visibility="private" complexity="4" crap="4" count="2"/>
+        <line num="87" type="stmt" count="2"/>
+        <line num="88" type="stmt" count="2"/>
+        <line num="90" type="stmt" count="2"/>
+        <line num="96" type="stmt" count="2"/>
+        <line num="97" type="stmt" count="1"/>
+        <line num="99" type="stmt" count="2"/>
+        <line num="101" type="stmt" count="1"/>
+        <line num="108" type="stmt" count="1"/>
+        <line num="109" type="stmt" count="1"/>
+        <line num="112" type="stmt" count="2"/>
+        <line num="120" type="method" name="storeAccessToken" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="122" type="stmt" count="2"/>
+        <line num="123" type="stmt" count="2"/>
+        <line num="129" type="method" name="setBody" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="132" type="stmt" count="2"/>
+        <line num="133" type="stmt" count="2"/>
+        <line num="136" type="stmt" count="2"/>
+        <line num="144" type="method" name="setHeaders" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="147" type="stmt" count="2"/>
+        <line num="148" type="stmt" count="2"/>
+        <line num="158" type="method" name="makeCurlRequest" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="160" type="stmt" count="1"/>
+        <line num="161" type="stmt" count="1"/>
+        <line num="162" type="stmt" count="1"/>
+        <line num="163" type="stmt" count="1"/>
+        <line num="164" type="stmt" count="1"/>
+        <line num="165" type="stmt" count="1"/>
+        <line num="166" type="stmt" count="1"/>
+        <line num="167" type="stmt" count="1"/>
+        <line num="168" type="stmt" count="1"/>
+        <line num="169" type="stmt" count="1"/>
+        <line num="171" type="stmt" count="1"/>
+        <line num="173" type="stmt" count="1"/>
+        <metrics loc="174" ncloc="126" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="40" elements="48" coveredelements="48"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\ClientBuilder.php">
+        <class name="CVLB\Svc\Api\ClientBuilder" namespace="CVLB\Svc\Api">
+          <metrics complexity="6" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="14" coveredelements="14"/>
+        </class>
+        <line num="23" type="method" name="__construct" visibility="public" complexity="4" crap="4" count="2"/>
+        <line num="28" type="stmt" count="2"/>
+        <line num="29" type="stmt" count="2"/>
+        <line num="30" type="stmt" count="2"/>
+        <line num="31" type="stmt" count="2"/>
+        <line num="33" type="method" name="addPlugin" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="35" type="stmt" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="38" type="method" name="getHttpClient" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="42" type="stmt" count="1"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="44" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="1"/>
+        <metrics loc="47" ncloc="47" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="11" elements="14" coveredelements="14"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Sdk.php">
+        <class name="CVLB\Svc\Api\Sdk" namespace="CVLB\Svc\Api">
+          <metrics complexity="7" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="19" coveredelements="19"/>
+        </class>
+        <line num="36" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="4"/>
+        <line num="38" type="stmt" count="4"/>
+        <line num="39" type="stmt" count="4"/>
+        <line num="40" type="stmt" count="4"/>
+        <line num="47" type="stmt" count="4"/>
+        <line num="55" type="stmt" count="4"/>
+        <line num="56" type="stmt" count="4"/>
+        <line num="58" type="stmt" count="4"/>
+        <line num="59" type="stmt" count="4"/>
+        <line num="60" type="stmt" count="4"/>
+        <line num="64" type="stmt" count="4"/>
+        <line num="69" type="method" name="getAUth" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="71" type="stmt" count="4"/>
+        <line num="77" type="method" name="getHttpClient" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="79" type="stmt" count="1"/>
+        <line num="85" type="method" name="logging" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="87" type="stmt" count="1"/>
+        <line num="93" type="method" name="notify" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="95" type="stmt" count="1"/>
+        <metrics loc="96" ncloc="69" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="19" coveredelements="19"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\Auth">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Auth\AuthToken.php">
+        <class name="CVLB\Svc\Api\Auth\AuthToken" namespace="CVLB\Svc\Api\Auth">
+          <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="14" coveredelements="14"/>
+        </class>
+        <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="22" type="stmt" count="2"/>
+        <line num="23" type="stmt" count="2"/>
+        <line num="24" type="stmt" count="2"/>
+        <line num="30" type="method" name="setToken" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="32" type="stmt" count="2"/>
+        <line num="33" type="stmt" count="2"/>
+        <line num="38" type="method" name="getToken" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="40" type="stmt" count="2"/>
+        <line num="47" type="method" name="setExpire" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="49" type="stmt" count="2"/>
+        <line num="50" type="stmt" count="2"/>
+        <line num="55" type="method" name="getExpire" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="57" type="stmt" count="2"/>
+        <metrics loc="58" ncloc="42" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="9" elements="14" coveredelements="14"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\HttpClient\Message">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\HttpClient\Message\ResponseMediator.php">
+        <class name="CVLB\Svc\Api\HttpClient\Message\ResponseMediator" namespace="CVLB\Svc\Api\HttpClient\Message">
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+        </class>
+        <line num="9" type="method" name="getContent" visibility="public" complexity="1" crap="1" count="7"/>
+        <line num="11" type="stmt" count="7"/>
+        <metrics loc="12" ncloc="12" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="1" elements="2" coveredelements="2"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\Services\Logging">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Logging\Logging.php">
+        <class name="CVLB\Svc\Api\Services\Logging\Logging" namespace="CVLB\Svc\Api\Services\Logging">
+          <metrics complexity="11" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="26" elements="36" coveredelements="32"/>
+        </class>
+        <line num="43" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="45" type="stmt" count="3"/>
+        <line num="46" type="stmt" count="3"/>
+        <line num="47" type="stmt" count="3"/>
+        <line num="48" type="stmt" count="3"/>
+        <line num="57" type="method" name="put" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="60" type="stmt" count="2"/>
+        <line num="62" type="stmt" count="1"/>
+        <line num="64" type="stmt" count="1"/>
+        <line num="67" type="stmt" count="1"/>
+        <line num="77" type="method" name="setData" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="80" type="stmt" count="2"/>
+        <line num="81" type="stmt" count="2"/>
+        <line num="82" type="stmt" count="2"/>
+        <line num="83" type="stmt" count="2"/>
+        <line num="92" type="method" name="getContext" visibility="private" complexity="1" crap="1" count="2"/>
+        <line num="94" type="stmt" count="2"/>
+        <line num="95" type="stmt" count="2"/>
+        <line num="97" type="stmt" count="2"/>
+        <line num="98" type="stmt" count="2"/>
+        <line num="99" type="stmt" count="2"/>
+        <line num="100" type="stmt" count="2"/>
+        <line num="101" type="stmt" count="2"/>
+        <line num="116" type="method" name="getDataDogContext" visibility="private" complexity="2" crap="2.31" count="2"/>
+        <line num="121" type="stmt" count="2"/>
+        <line num="124" type="stmt" count="2"/>
+        <line num="127" type="stmt" count="2"/>
+        <line num="128" type="stmt" count="0"/>
+        <line num="129" type="stmt" count="0"/>
+        <line num="130" type="stmt" count="0"/>
+        <line num="133" type="stmt" count="2"/>
+        <line num="140" type="method" name="findInstanceIp" visibility="private" complexity="2" crap="2" count="2"/>
+        <line num="142" type="stmt" count="2"/>
+        <line num="149" type="method" name="getHostname" visibility="private" complexity="2" crap="2" count="2"/>
+        <line num="151" type="stmt" count="2"/>
+        <line num="152" type="stmt" count="2"/>
+        <metrics loc="153" ncloc="105" classes="1" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="26" elements="36" coveredelements="32"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\Services\Notify">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Notify.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Notify" namespace="CVLB\Svc\Api\Services\Notify">
+          <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
+        </class>
+        <line num="36" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="36"/>
+        <line num="38" type="stmt" count="36"/>
+        <line num="39" type="stmt" count="36"/>
+        <line num="40" type="stmt" count="36"/>
+        <line num="45" type="method" name="chat" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="53" type="method" name="email" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="55" type="stmt" count="1"/>
+        <line num="61" type="method" name="sms" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="69" type="method" name="push" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="71" type="stmt" count="1"/>
+        <metrics loc="73" ncloc="57" classes="1" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="12" coveredelements="12"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\Services\Notify\Protocols">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\AbstractProtocol.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\AbstractProtocol" namespace="CVLB\Svc\Api\Services\Notify\Protocols">
+          <metrics complexity="9" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="25" coveredelements="25"/>
+        </class>
+        <line num="57" type="method" name="setUri" visibility="public" complexity="1" crap="1" count="6"/>
+        <line num="59" type="stmt" count="6"/>
+        <line num="60" type="stmt" count="6"/>
+        <line num="66" type="method" name="getUri" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="68" type="stmt" count="2"/>
+        <line num="76" type="method" name="setVersion" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="78" type="stmt" count="1"/>
+        <line num="79" type="stmt" count="1"/>
+        <line num="80" type="stmt" count="1"/>
+        <line num="81" type="stmt" count="1"/>
+        <line num="87" type="method" name="getVersion" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="89" type="stmt" count="2"/>
+        <line num="98" type="method" name="setHeader" visibility="public" complexity="1" crap="1" count="6"/>
+        <line num="100" type="stmt" count="6"/>
+        <line num="102" type="stmt" count="6"/>
+        <line num="110" type="method" name="unsetHeader" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="112" type="stmt" count="1"/>
+        <line num="114" type="stmt" count="1"/>
+        <line num="121" type="method" name="getHeaders" visibility="public" complexity="1" crap="1" count="10"/>
+        <line num="123" type="stmt" count="10"/>
+        <line num="131" type="method" name="setVerbose" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="133" type="stmt" count="1"/>
+        <line num="134" type="stmt" count="1"/>
+        <line num="140" type="method" name="getVerbose" visibility="public" complexity="1" crap="1" count="10"/>
+        <line num="142" type="stmt" count="10"/>
+        <metrics loc="144" ncloc="92" classes="1" methods="9" coveredmethods="9" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="25" coveredelements="25"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\Services\Notify\Protocols\Chat">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Chat\AbstractChatService.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Chat\AbstractChatService" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Chat">
+          <metrics complexity="3" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+        </class>
+        <line num="25" type="method" name="__construct" visibility="protected" complexity="1" crap="1" count="1"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="30" type="stmt" count="1"/>
+        <metrics loc="46" ncloc="28" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Chat\Chat.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Chat\Chat" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Chat">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+        </class>
+        <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="15"/>
+        <line num="19" type="stmt" count="15"/>
+        <line num="20" type="stmt" count="15"/>
+        <line num="25" type="method" name="slack" visibility="public" complexity="1" crap="1" count="14"/>
+        <line num="27" type="stmt" count="14"/>
+        <metrics loc="28" ncloc="22" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Chat\SlackService.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Chat\SlackService" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Chat">
+          <metrics complexity="5" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="16" coveredelements="16"/>
+        </class>
+        <line num="26" type="method" name="getInstance" visibility="public" complexity="2" crap="2" count="14"/>
+        <line num="28" type="stmt" count="14"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="14"/>
+        <line num="40" type="method" name="send" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="43" type="stmt" count="2"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="46" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="56" type="stmt" count="1"/>
+        <line num="65" type="method" name="setBody" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="68" type="stmt" count="3"/>
+        <line num="69" type="stmt" count="3"/>
+        <line num="70" type="stmt" count="2"/>
+        <metrics loc="72" ncloc="52" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="16" coveredelements="16"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\Services\Notify\Protocols\Email">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Email\AbstractEmailService.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Email\AbstractEmailService" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Email">
+          <metrics complexity="3" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+        </class>
+        <line num="25" type="method" name="__construct" visibility="protected" complexity="1" crap="1" count="2"/>
+        <line num="27" type="stmt" count="2"/>
+        <line num="28" type="stmt" count="2"/>
+        <line num="29" type="stmt" count="2"/>
+        <line num="30" type="stmt" count="2"/>
+        <metrics loc="44" ncloc="28" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Email\Email.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Email\Email" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Email">
+          <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+        </class>
+        <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="11"/>
+        <line num="19" type="stmt" count="11"/>
+        <line num="20" type="stmt" count="11"/>
+        <line num="25" type="method" name="ses" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="27" type="stmt" count="5"/>
+        <line num="33" type="method" name="sendpulse" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="35" type="stmt" count="5"/>
+        <metrics loc="36" ncloc="28" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="7" coveredelements="7"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Email\SendPulseService.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Email\SendPulseService" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Email">
+          <metrics complexity="5" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="22" coveredelements="22"/>
+        </class>
+        <line num="27" type="method" name="getInstance" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="29" type="stmt" count="5"/>
+        <line num="30" type="stmt" count="1"/>
+        <line num="32" type="stmt" count="5"/>
+        <line num="41" type="method" name="send" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="45" type="stmt" count="2"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="55" type="stmt" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="66" type="method" name="setBody" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="69" type="stmt" count="3"/>
+        <line num="70" type="stmt" count="2"/>
+        <line num="71" type="stmt" count="2"/>
+        <line num="72" type="stmt" count="2"/>
+        <line num="73" type="stmt" count="2"/>
+        <line num="74" type="stmt" count="2"/>
+        <line num="75" type="stmt" count="2"/>
+        <line num="76" type="stmt" count="2"/>
+        <line num="77" type="stmt" count="2"/>
+        <metrics loc="79" ncloc="59" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="22" coveredelements="22"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Email\SesService.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Email\SesService" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Email">
+          <metrics complexity="5" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="22" coveredelements="22"/>
+        </class>
+        <line num="27" type="method" name="getInstance" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="29" type="stmt" count="5"/>
+        <line num="30" type="stmt" count="1"/>
+        <line num="32" type="stmt" count="5"/>
+        <line num="41" type="method" name="send" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="45" type="stmt" count="2"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="55" type="stmt" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="66" type="method" name="setBody" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="69" type="stmt" count="3"/>
+        <line num="70" type="stmt" count="2"/>
+        <line num="71" type="stmt" count="2"/>
+        <line num="72" type="stmt" count="2"/>
+        <line num="73" type="stmt" count="2"/>
+        <line num="74" type="stmt" count="2"/>
+        <line num="75" type="stmt" count="2"/>
+        <line num="76" type="stmt" count="2"/>
+        <line num="77" type="stmt" count="2"/>
+        <metrics loc="79" ncloc="59" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="22" coveredelements="22"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\Services\Notify\Protocols\Push">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Push\Push.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Push\Push" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Push">
+          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+        </class>
+        <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="19" type="stmt" count="2"/>
+        <line num="20" type="stmt" count="2"/>
+        <metrics loc="20" ncloc="16" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
+      </file>
+    </package>
+    <package name="CVLB\Svc\Api\Services\Notify\Protocols\Sms">
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Sms\AbstractSmsService.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Sms\AbstractSmsService" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Sms">
+          <metrics complexity="3" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+        </class>
+        <line num="25" type="method" name="__construct" visibility="protected" complexity="1" crap="1" count="1"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="30" type="stmt" count="1"/>
+        <metrics loc="46" ncloc="28" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Sms\Sms.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Sms\Sms" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Sms">
+          <metrics complexity="2" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+        </class>
+        <line num="17" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="6"/>
+        <line num="19" type="stmt" count="6"/>
+        <line num="20" type="stmt" count="6"/>
+        <line num="25" type="method" name="twilio" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="27" type="stmt" count="5"/>
+        <metrics loc="28" ncloc="22" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="5" coveredelements="5"/>
+      </file>
+      <file name="C:\Users\michaelbarlund\Documents\Projects\svc-sdk-php\src\Services\Notify\Protocols\Sms\TwilioService.php">
+        <class name="CVLB\Svc\Api\Services\Notify\Protocols\Sms\TwilioService" namespace="CVLB\Svc\Api\Services\Notify\Protocols\Sms">
+          <metrics complexity="5" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="17" coveredelements="17"/>
+        </class>
+        <line num="26" type="method" name="getInstance" visibility="public" complexity="2" crap="2" count="5"/>
+        <line num="28" type="stmt" count="5"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="5"/>
+        <line num="40" type="method" name="send" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="43" type="stmt" count="2"/>
+        <line num="44" type="stmt" count="2"/>
+        <line num="46" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="56" type="stmt" count="1"/>
+        <line num="65" type="method" name="setBody" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="68" type="stmt" count="3"/>
+        <line num="69" type="stmt" count="2"/>
+        <line num="70" type="stmt" count="2"/>
+        <line num="71" type="stmt" count="2"/>
+        <metrics loc="73" ncloc="53" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="14" elements="17" coveredelements="17"/>
+      </file>
+    </package>
+    <metrics files="19" loc="1308" ncloc="945" classes="19" methods="66" coveredmethods="65" conditionals="0" coveredconditionals="0" statements="216" coveredstatements="213" elements="282" coveredelements="278"/>
+  </project>
+</coverage>
