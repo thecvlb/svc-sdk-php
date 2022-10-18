@@ -55,7 +55,7 @@ jobs:
           coverage_badge_path: ./.coverage/coverage.svg
           report: ./.coverage/clover.xml
           report_type: clover
-          commit_message: "ci"
+          commit_message: "[ci]"
 
       # Send notification
       - name: Completed Notification
