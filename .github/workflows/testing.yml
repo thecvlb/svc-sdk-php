@@ -55,6 +55,7 @@ jobs:
           coverage_badge_path: ./.coverage/coverage.svg
           report: ./.coverage/clover.xml
           report_type: clover
+          commit_message: "Update code coverage badge ci skip"
 
       # Send notification
       - name: Completed Notification
