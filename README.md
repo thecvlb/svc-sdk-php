@@ -2,6 +2,8 @@
 
 Services SDK for PHP - Use LifeMD Services in your PHP project.
 
+![coverage](.coverage/coverage.svg "Coverage")
+
 ## Installation
 
 Installation via [Composer](https://getcomposer.org/). First, add the repository to your `composer.json` file:

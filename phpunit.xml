@@ -5,8 +5,8 @@
          colors="true"
 >
     <testsuites>
-        <testsuite name="Unit">
-            <directory suffix="Test.php">./tests</directory>
+        <testsuite name="unit">
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
     <php>
@@ -23,9 +23,13 @@
         <server name="SERVER_ADDR" value="127.0.0.1"/>
         <server name="AWS_LOCAL_CLIENT_ID" value="123"/>
     </php>
-    <filter>
-        <whitelist>
+    <coverage cacheDirectory=".phpunit.cache/code-coverage" processUncoveredFiles="true">
+        <include>
             <directory suffix=".php">./src</directory>
-        </whitelist>
-    </filter>
+        </include>
+        <report>
+            <clover outputFile=".coverage/clover.xml" />
+            <html outputDirectory=".coverage/html" />
+        </report>
+    </coverage>
 </phpunit>

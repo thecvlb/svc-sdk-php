@@ -7,6 +7,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.0.3] - 2022-10-18
+### Updated
+- Add bcc to email services
+- Include code coverage badge
+
 ## [2.0.2] - 2022-10-17
 ### Updated
 - Updated local and dev endpoints for Notify
