@@ -5,7 +5,7 @@ on: push
 jobs:
   run-tests:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[ci]')"
+    if: "!contains(github.event.head_commit.message, '[Update coverage badge, skip ci]')"
     steps:
       - uses: actions/checkout@v2
         with:
@@ -55,7 +55,7 @@ jobs:
           coverage_badge_path: ./.coverage/coverage.svg
           report: ./.coverage/clover.xml
           report_type: clover
-          commit_message: "[ci]"
+          commit_message: "[Update coverage badge, skip ci]"
 
       # Send notification
       - name: Completed Notification
