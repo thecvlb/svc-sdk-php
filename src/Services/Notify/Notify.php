@@ -26,7 +26,7 @@ class Notify
     private static array $notify_endpoints = [
         'local' =>          'https://x5g8crw84f.execute-api.us-west-2.amazonaws.com',
         'development' =>    'https://x5g8crw84f.execute-api.us-west-2.amazonaws.com',
-        'stage' =>          'https://svc.notify.stage.prm-lfmd.com',
+        'stage' =>          'https://qg5oep1c34.execute-api.us-west-2.amazonaws.com',
         'production' =>     'https://svc.notify.prm-lfmd.com',
     ];
 

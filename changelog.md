@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased] - yyyy-mm-dd
 ### Added
 ### Changed
+- Url for Notify stage
 ### Fixed
 
 ## [2.0.3] - 2022-10-18
