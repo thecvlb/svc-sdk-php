@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1666128517">
-  <project timestamp="1666128517">
+<coverage generated="1666209649">
+  <project timestamp="1666209649">
     <file name="/home/runner/work/svc-sdk-php/svc-sdk-php/src/Auth/AuthToken.php">
       <class name="CVLB\Svc\Api\Auth\AuthToken" namespace="global">
         <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="11" coveredelements="11"/>
