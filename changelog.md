@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.0.5] - 2022-10-25
+### Updated
+- Url for Notify prod
+
 ## [2.0.4] - 2022-10-19
 ### Updated
 - Url for Notify stage
