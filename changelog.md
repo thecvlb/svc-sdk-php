@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.1.0] - 2023-03-23
+### Added
+- Support for PHP 8
+
 ## [2.0.5] - 2022-10-25
 ### Updated
 - Url for Notify prod
