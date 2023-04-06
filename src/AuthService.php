@@ -27,21 +27,22 @@ class AuthService
      * Cognito credentials
      * @var array{client_id: string, client_secret: string}
      */
-    private $credentials;
+    private array $credentials;
 
     /**
      * @var Redis
      */
-    private $cache;
+    private Redis $cache;
 
     /**
      * @var string
      */
-    private $access_token_key = 'svclifemd-access-token';
+    private string $access_token_key = 'svclifemd-access-token';
 
     /**
      * @param Redis $redis
      * @param array $credentials
+     * @throws \RedisException
      */
     public function __construct(Redis $redis, array $credentials)
     {
@@ -130,12 +131,10 @@ class AuthService
      */
     private function setBody(string $client_id): array
     {
-        $fields = [
+        return [
             'client_id' => $client_id,
             'grant_type' => 'client_credentials'
         ];
-
-        return $fields;
     }
 
     /**
