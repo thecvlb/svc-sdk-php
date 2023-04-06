@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.2.0] - 2023-04-06
+### Changed
+- Expire the token in Redis 10 minutes before the token actually expires
+
 ## [2.1.0] - 2023-03-23
 ### Added
 - Support for PHP 8
