@@ -116,10 +116,12 @@ class AuthService
      * @param string $access_token
      * @param int $expires_in
      * @return void
+     * @throws \RedisException
      */
     private function storeAccessToken(string $access_token, int $expires_in): void
     {
-        $this->cache->set($this->access_token_key, $access_token, $expires_in);
+        // Expire the token in Redis 10 minutes before the token actually expires
+        $this->cache->set($this->access_token_key, $access_token, $expires_in-600);
     }
 
     /**
