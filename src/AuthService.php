@@ -27,21 +27,22 @@ class AuthService
      * Cognito credentials
      * @var array{client_id: string, client_secret: string}
      */
-    private $credentials;
+    private array $credentials;
 
     /**
      * @var Redis
      */
-    private $cache;
+    private Redis $cache;
 
     /**
      * @var string
      */
-    private $access_token_key = 'svclifemd-access-token';
+    private string $access_token_key = 'svclifemd-access-token';
 
     /**
      * @param Redis $redis
      * @param array $credentials
+     * @throws \RedisException
      */
     public function __construct(Redis $redis, array $credentials)
     {
@@ -116,10 +117,12 @@ class AuthService
      * @param string $access_token
      * @param int $expires_in
      * @return void
+     * @throws \RedisException
      */
     private function storeAccessToken(string $access_token, int $expires_in): void
     {
-        $this->cache->set($this->access_token_key, $access_token, $expires_in);
+        // Expire the token in Redis 10 minutes before the token actually expires
+        $this->cache->set($this->access_token_key, $access_token, $expires_in-600);
     }
 
     /**
@@ -128,12 +131,10 @@ class AuthService
      */
     private function setBody(string $client_id): array
     {
-        $fields = [
+        return [
             'client_id' => $client_id,
             'grant_type' => 'client_credentials'
         ];
-
-        return $fields;
     }
 
     /**
