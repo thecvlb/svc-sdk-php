@@ -85,17 +85,6 @@ class AbstractProtocolTest extends TestCase
         $this->assertIsArray($service->getHeaders());
     }
 
-
-
-    public function testGetVersion()
-    {
-        $service = $this->getService();
-
-        $this->assertIsString($service->getVersion());
-    }
-
-
-
     public function testSetUri()
     {
         $service = $this->getService();
@@ -111,16 +100,6 @@ class AbstractProtocolTest extends TestCase
         $service = $this->getService();
 
         $this->assertIsString($service->getUri());
-    }
-
-    public function testSetVersion()
-    {
-        $service = $this->getService();
-        $version = '123';
-
-        $service->setVersion($version);
-
-        $this->assertEquals($version, $service->getVersion());
     }
 
     public function testSetHeader()

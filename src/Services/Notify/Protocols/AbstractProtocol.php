@@ -62,27 +62,6 @@ abstract class AbstractProtocol
     }
 
     /**
-     * Set api version
-     * @param string $value
-     * @return void
-     */
-    public function setVersion(string $value)
-    {
-        $this->version = $value;
-        $this->setUri();
-        $this->setHeader('svc-notify-requesting-service', $this->notify->sdk->app_name);
-    }
-
-    /**
-     * Get the current api version
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return $this->version;
-    }
-
-    /**
      * Set a specific header
      * @param string $key
      * @param string $value

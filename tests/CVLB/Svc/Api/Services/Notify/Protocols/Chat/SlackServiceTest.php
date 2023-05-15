@@ -115,7 +115,7 @@ class SlackServiceTest extends TestCase
         $service = $protocol->slack();
 
         $message = [["type"=>"header"]];
-        $destination = ['EEROR' => '12345qwert'];
+        $destination = ['ERROR' => '12345qwert'];
 
         $response = $service->send($message, $destination);
 
