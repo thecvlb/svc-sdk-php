@@ -14,12 +14,6 @@ abstract class AbstractEmailService extends AbstractProtocol
     protected string $protocol = 'email';
 
     /**
-     * Default version
-     * @var string
-     */
-    protected string $version = '1';
-
-    /**
      * @param Email $email
      */
     protected function __construct(Email $email)
