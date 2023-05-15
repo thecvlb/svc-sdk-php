@@ -39,13 +39,6 @@ abstract class AbstractProtocol
     protected string $service;
 
     /**
-     * Version of service,
-     * This is used in the API path and must correspond
-     * @var string
-     */
-    protected string $version;
-
-    /**
      * Turn on verbosity in the logs
      * @var bool
      */
@@ -56,7 +49,7 @@ abstract class AbstractProtocol
      */
     public function setUri()
     {
-        $this->api_uri = sprintf("%s/v%s/%s/%s", $this->notify::$base_uri, $this->version, $this->protocol, $this->service);
+        $this->api_uri = sprintf("%s/%s/%s", $this->notify::$base_uri, $this->protocol, $this->service);
     }
 
     /**
