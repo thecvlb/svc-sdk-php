@@ -14,12 +14,6 @@ abstract class AbstractChatService extends AbstractProtocol
     protected string $protocol = 'chat';
 
     /**
-     * Default version
-     * @var string
-     */
-    protected string $version = '1';
-
-    /**
      * @param Chat $chat
      */
     protected function __construct(Chat $chat)

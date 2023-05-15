@@ -14,12 +14,6 @@ abstract class AbstractSmsService extends AbstractProtocol
     protected string $protocol = 'sms';
 
     /**
-     * Default version
-     * @var string
-     */
-    protected string $version = '1';
-
-    /**
      * @param Sms $sms
      */
     protected function __construct(Sms $sms)

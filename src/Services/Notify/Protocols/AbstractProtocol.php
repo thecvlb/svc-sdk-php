@@ -39,13 +39,6 @@ abstract class AbstractProtocol
     protected string $service;
 
     /**
-     * Version of service,
-     * This is used in the API path and must correspond
-     * @var string
-     */
-    protected string $version;
-
-    /**
      * Turn on verbosity in the logs
      * @var bool
      */
@@ -56,7 +49,7 @@ abstract class AbstractProtocol
      */
     public function setUri()
     {
-        $this->api_uri = sprintf("%s/v%s/%s/%s", $this->notify::$base_uri, $this->version, $this->protocol, $this->service);
+        $this->api_uri = sprintf("%s/%s/%s", $this->notify::$base_uri, $this->protocol, $this->service);
     }
 
     /**
@@ -66,27 +59,6 @@ abstract class AbstractProtocol
     public function getUri(): string
     {
         return $this->api_uri;
-    }
-
-    /**
-     * Set api version
-     * @param string $value
-     * @return void
-     */
-    public function setVersion(string $value)
-    {
-        $this->version = $value;
-        $this->setUri();
-        $this->setHeader('svc-notify-requesting-service', $this->notify->sdk->app_name);
-    }
-
-    /**
-     * Get the current api version
-     * @return string
-     */
-    public function getVersion(): string
-    {
-        return $this->version;
     }
 
     /**
