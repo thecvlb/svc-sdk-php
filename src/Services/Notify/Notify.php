@@ -24,9 +24,9 @@ class Notify
      * @var array
      */
     private static array $notify_endpoints = [
-        'local' =>          'https://svc.dev.notify.prm-lfmd.com',
-        'development' =>    'https://svc.dev.notify.prm-lfmd.com',
-        'stage' =>          'https://svc.stage.notify.prm-lfmd.com',
+        'local' =>          'https://svc.notify.dev.prm-lfmd.com',
+        'development' =>    'https://svc.notify.dev.prm-lfmd.com',
+        'stage' =>          'https://svc.notify.stage.prm-lfmd.com',
         'production' =>     'https://svc.notify.prm-lfmd.com',
     ];
 
