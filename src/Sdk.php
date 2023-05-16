@@ -2,6 +2,7 @@
 
 namespace CVLB\Svc\Api;
 
+use CVLB\Svc\Api\Services\DataSegmentation\DataSegmentation;
 use CVLB\Svc\Api\Services\Logging\Logging;
 use CVLB\Svc\Api\Services\Notify\Notify;
 use Http\Client\Common\HttpMethodsClientInterface;
@@ -93,5 +94,13 @@ class Sdk
     public function notify(): Notify
     {
         return new Notify($this);
+    }
+
+    /**
+     * @return DataSegmentation
+     */
+    public function dse(): DataSegmentation
+    {
+        return new DataSegmentation($this);
     }
 }

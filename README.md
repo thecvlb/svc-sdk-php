@@ -66,6 +66,46 @@ $svc->logging()->put($exception->getMessage(), $exception->getTrace(), $exceptio
   "message": "OK"
 }
 ```
+## Data Segmentation Engine
+
+SVC DSE creates data segmentation lists from the AWS Data Lake. Documentation can be found at TBD
+
+
+### Sample Requests
+```php
+$svc->dse()->query("SELECT patient_id, dob FROM lakeformation_aurora.rexmd_rexmd_patients where gender = 'M' AND dob <= current_date - interval '40' year;");
+```
+### Response
+```json
+{
+  "statusCode": 200,
+  "message": "Query executed successfully",
+  "query_execution_id": "0c35524d-4d91-4190-bf03-c4711dfd4185",
+  "segmentation_list": [
+    {
+      "patient_id": "1680833",
+      "dob": "1983-05-15"
+    },
+    {
+      "patient_id": "570602",
+      "dob": "1983-05-04"
+    },
+    {
+      "patient_id": "1668479",
+      "dob": "1983-04-26"
+    },
+    {
+      "patient_id": "1160596",
+      "dob": "1983-04-17"
+    },
+    {
+      "patient_id": "1677675",
+      "dob": "1983-04-10"
+    }
+  ]
+}
+```
+
 ## Notify
 
 SVC Notify service sends chat messages with Slack, email messages with AWS SES and SendPulse, and sms messages with Twilio. Documentation can be found at https://documenter.getpostman.com/view/16680838/2s8479zH7v

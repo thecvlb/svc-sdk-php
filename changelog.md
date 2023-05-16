@@ -7,6 +7,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.4.0] - 2023-05-16
+### Added
+- Add DSE service and unit tests
+### Changed
+- updated composer packages
+- updated readme
+
 ## [2.3.0] - 2023-05-15
 ### Changed
 - use custom domain for notify
