@@ -106,6 +106,21 @@ $svc->dse()->query("SELECT patient_id, dob FROM lakeformation_aurora.rexmd_rexmd
 }
 ```
 
+### Other Requests
+```php
+// Operations on a specific list
+$svc->dse()->create_list('abcd-1234', 'Test SDK', 'Test list using SDK', false);
+$svc->dse()->view_list('abcd-1234');
+$svc->dse()->update_list('abcd-1234', '5678-wxyz', 'Test SDK', 'Test list UPDATED using SDK', false);
+$svc->dse()->refresh_list('abcd-1234');
+$svc->dse()->delete_list('abcd-1234');
+
+// Operations on all lists as a group
+$svc->dse()->get_lists();
+$svc->dse()->search_lists('description', 'up');
+$svc->dse()->refresh_lists();
+```
+
 ## Notify
 
 SVC Notify service sends chat messages with Slack, email messages with AWS SES and SendPulse, and sms messages with Twilio. Documentation can be found at https://documenter.getpostman.com/view/16680838/2s8479zH7v
