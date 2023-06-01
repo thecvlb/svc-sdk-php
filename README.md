@@ -42,6 +42,7 @@ $svc = new Sdk(new AuthService(new Redis(), ['client_id' => '<your client_id>', 
 
 The following services are available:
 - **Logging**: centralized logging
+- **Data Segmentation Engine**: create and manage data segmentation lists
 - **Notify**: centralized notifications across various protocols and services
 
 See the sections below for details on each service.
@@ -68,7 +69,7 @@ $svc->logging()->put($exception->getMessage(), $exception->getTrace(), $exceptio
 ```
 ## Data Segmentation Engine
 
-SVC DSE creates data segmentation lists from the AWS Data Lake. Documentation can be found at TBD
+SVC DSE creates data segmentation lists from the AWS Data Lake. Documentation can be found at https://documenter.getpostman.com/view/16680838/2s93mBxKLk
 
 
 ### Sample Requests
