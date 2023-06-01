@@ -42,6 +42,7 @@ $svc = new Sdk(new AuthService(new Redis(), ['client_id' => '<your client_id>', 
 
 The following services are available:
 - **Logging**: centralized logging
+- **Data Segmentation Engine**: create and manage data segmentation lists
 - **Notify**: centralized notifications across various protocols and services
 
 See the sections below for details on each service.
@@ -66,6 +67,61 @@ $svc->logging()->put($exception->getMessage(), $exception->getTrace(), $exceptio
   "message": "OK"
 }
 ```
+## Data Segmentation Engine
+
+SVC DSE creates data segmentation lists from the AWS Data Lake. Documentation can be found at https://documenter.getpostman.com/view/16680838/2s93mBxKLk
+
+
+### Sample Requests
+```php
+$svc->dse()->query("SELECT patient_id, dob FROM lakeformation_aurora.rexmd_rexmd_patients where gender = 'M' AND dob <= current_date - interval '40' year;");
+```
+### Response
+```json
+{
+  "statusCode": 200,
+  "message": "Query executed successfully",
+  "query_execution_id": "0c35524d-4d91-4190-bf03-c4711dfd4185",
+  "segmentation_list": [
+    {
+      "patient_id": "1680833",
+      "dob": "1983-05-15"
+    },
+    {
+      "patient_id": "570602",
+      "dob": "1983-05-04"
+    },
+    {
+      "patient_id": "1668479",
+      "dob": "1983-04-26"
+    },
+    {
+      "patient_id": "1160596",
+      "dob": "1983-04-17"
+    },
+    {
+      "patient_id": "1677675",
+      "dob": "1983-04-10"
+    }
+  ]
+}
+```
+
+### Other Requests
+```php
+// Operations on a specific list
+$svc->dse()->create_list('abcd-1234', 'Test SDK', 'Test list using SDK', false);
+$svc->dse()->view_list('abcd-1234');
+$svc->dse()->update_list('abcd-1234', '5678-wxyz', 'Test SDK', 'Test list UPDATED using SDK', false);
+$svc->dse()->refresh_list('abcd-1234');
+$svc->dse()->delete_list('abcd-1234');
+
+// Operations on all lists as a group
+$svc->dse()->get_lists();
+$svc->dse()->search_lists('description', 'up');
+$svc->dse()->refresh_lists();
+```
+
 ## Notify
 
 SVC Notify service sends chat messages with Slack, email messages with AWS SES and SendPulse, and sms messages with Twilio. Documentation can be found at https://documenter.getpostman.com/view/16680838/2s8479zH7v

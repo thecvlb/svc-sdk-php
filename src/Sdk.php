@@ -2,13 +2,14 @@
 
 namespace CVLB\Svc\Api;
 
+use CVLB\Svc\Api\Services\DataSegmentation\DataSegmentation;
 use CVLB\Svc\Api\Services\Logging\Logging;
 use CVLB\Svc\Api\Services\Notify\Notify;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Discovery\Psr17FactoryDiscovery;
-use Http\Message\UriFactory;
+use Psr\Http\Message\UriFactoryInterface;
 
 class Sdk
 {
@@ -30,10 +31,10 @@ class Sdk
     /**
      * @param AuthService $authService
      * @param ClientBuilder|null $clientBuilder
-     * @param UriFactory|null $uriFactory
+     * @param UriFactoryInterface|null $uriFactory
      * @throws \Exception
      */
-    public function __construct(AuthService $authService, ClientBuilder $clientBuilder = null, UriFactory $uriFactory = null)
+    public function __construct(AuthService $authService, ClientBuilder $clientBuilder = null, UriFactoryInterface $uriFactory = null)
     {
         $this->app_name = $_ENV['APP_NAME'] ?? "Unknown App";
         $this->auth = $authService;
@@ -93,5 +94,13 @@ class Sdk
     public function notify(): Notify
     {
         return new Notify($this);
+    }
+
+    /**
+     * @return DataSegmentation
+     */
+    public function dse(): DataSegmentation
+    {
+        return new DataSegmentation($this);
     }
 }
