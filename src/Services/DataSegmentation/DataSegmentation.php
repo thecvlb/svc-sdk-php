@@ -26,10 +26,10 @@ class DataSegmentation
      * @var array
      */
     private static array $logging_endpoints = [
-        'local' =>          'https://44akmixfn4.execute-api.us-west-2.amazonaws.com/poc',
-        'development' =>    'https://44akmixfn4.execute-api.us-west-2.amazonaws.com/poc',
-        'stage' =>          'https://44akmixfn4.execute-api.us-west-2.amazonaws.com/poc',
-        'production' =>     'https://44akmixfn4.execute-api.us-west-2.amazonaws.com/poc',
+        'local' =>          'https://svc.dse.dev.prm-lfmd.com',
+        'development' =>    'https://svc.dse.dev.prm-lfmd.com',
+        'stage' =>          'https://svc.dse.stage.prm-lfmd.com',
+        'production' =>     'https://svc.dse.prm-lfmd.com',
     ];
 
     /**

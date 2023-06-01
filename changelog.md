@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
-## [2.4.0] - 2023-05-16
+## [2.4.0] - 2023-06-01
 ### Added
 - Add DSE service and unit tests
 ### Changed
