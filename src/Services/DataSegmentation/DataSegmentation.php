@@ -279,4 +279,53 @@ class DataSegmentation
             return ['success' => false, 'code' => 500, 'message' => $e->getMessage()];
         }
     }
+
+    /**
+     * Get list of databases
+     * @return array
+     */
+    public function get_databases(): array
+    {
+        try {
+            $headers = [];
+            return ResponseMediator::getContent(
+                $this->sdk->getHttpClient()->get(
+                    $this->api_uri . "/databases",
+                    $headers
+                )
+            );
+        }
+        catch (\Exception|\Http\Client\Exception $e) {
+            // Log request failed, log this error in server logs
+            error_log('Failed to get databases. ' . $e->getMessage());
+
+            // Return some context for the response
+            return ['success' => false, 'code' => 500, 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
+     * Get list of tables for a database
+     * @param string $database
+     * @return array
+     */
+    public function get_tables(string $database): array
+    {
+        try {
+            $headers = [];
+            return ResponseMediator::getContent(
+                $this->sdk->getHttpClient()->get(
+                    $this->api_uri . "/tables/$database",
+                    $headers
+                )
+            );
+        }
+        catch (\Exception|\Http\Client\Exception $e) {
+            // Log request failed, log this error in server logs
+            error_log('Failed to get tables. ' . $e->getMessage());
+
+            // Return some context for the response
+            return ['success' => false, 'code' => 500, 'message' => $e->getMessage()];
+        }
+    }
 }
