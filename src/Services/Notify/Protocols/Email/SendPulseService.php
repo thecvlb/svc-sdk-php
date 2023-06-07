@@ -33,9 +33,9 @@ final class SendPulseService extends AbstractEmailService
     }
 
     /**
-     * @param array $message
-     * @param array $destination
-     * @return array
+     * @param array{email_subject: string, email_html_message: string, email_text_message: string} $message
+     * @param array{from_name: string, from_address: string, to_name?: string, to_address: string, bcc?: array<string>} $destination
+     * @return array<mixed>
      * @throws \Http\Client\Exception
      */
     public function send(array $message, array $destination): array
@@ -48,7 +48,7 @@ final class SendPulseService extends AbstractEmailService
                 $this->notify->sdk->getHttpClient()->post(
                     $this->api_uri,
                     $headers,
-                    $body
+                    $body?:''
                 )
             );
         }
@@ -59,9 +59,9 @@ final class SendPulseService extends AbstractEmailService
     }
 
     /**
-     * @param array $message
-     * @param array $destination
-     * @return array
+     * @param array{email_subject: string, email_html_message: string, email_text_message: string} $message
+     * @param array{from_name: string, from_address: string, to_name?: string, to_address: string, bcc?: array<string>} $destination
+     * @return array{from_name: string, from_address: string, to_name: string, to_address: string, bcc: array<string>, email_subject: string, email_base64_html_message: string, email_text_message: string, verbose: bool}
      */
     public function setBody(array $message, array $destination): array
     {

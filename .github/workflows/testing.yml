@@ -27,7 +27,7 @@ jobs:
 
       # Run PHP Stan
       - name: PHPStan
-        run: vendor/bin/phpstan analyse src --memory-limit=2G
+        run: vendor/bin/phpstan analyse src --memory-limit=2G --level 8
 
       # Run PHP Unit
       - name: PHPUnit

@@ -23,9 +23,9 @@ class DataSegmentation
     private string $api_uri;
 
     /**
-     * @var array
+     * @var array{local: string, development: string, stage: string, production: string}
      */
-    private static array $logging_endpoints = [
+    private static array $dse_endpoints = [
         'local' =>          'https://svc.dse.dev.prm-lfmd.com',
         'development' =>    'https://svc.dse.dev.prm-lfmd.com',
         'stage' =>          'https://svc.dse.stage.prm-lfmd.com',
@@ -38,13 +38,13 @@ class DataSegmentation
     public function __construct(Sdk $sdk)
     {
         $this->sdk = $sdk;
-        self::$base_uri = self::$logging_endpoints[$_ENV['APP_ENV']] ?? self::$logging_endpoints['development'];
+        self::$base_uri = self::$dse_endpoints[$_ENV['APP_ENV']] ?? self::$dse_endpoints['development'];
         $this->api_uri = self::$base_uri;
     }
 
     /**
      * Get all lists
-     * @return array
+     * @return array<mixed>
      */
     public function get_lists(): array
     {
@@ -70,7 +70,7 @@ class DataSegmentation
      * Search lists
      * @param string $attr
      * @param string $val
-     * @return array
+     * @return array<mixed>
      */
     public function search_lists(string $attr, string $val): array
     {
@@ -81,7 +81,7 @@ class DataSegmentation
                 $this->sdk->getHttpClient()->post(
                 $this->api_uri . '/lists/search',
                     $headers,
-                    $body
+                    $body?:''
                 )
             );
         }
@@ -96,7 +96,7 @@ class DataSegmentation
 
     /**
      * Refresh lists
-     * @return array
+     * @return array<mixed>
      */
     public function refresh_lists(): array
     {
@@ -121,17 +121,18 @@ class DataSegmentation
     /**
      * Execute query on data lake
      * @param string $sql
-     * @return array
+     * @return array<mixed>
      */
     public function query(string $sql): array
     {
         try {
             $headers = [];
+            $body = json_encode(['sql' => $sql]);
             return ResponseMediator::getContent(
                 $this->sdk->getHttpClient()->post(
                     $this->api_uri . '/query',
                     $headers,
-                    json_encode(['sql' => $sql])
+                    $body?:''
                 )
             );
         }
@@ -150,7 +151,7 @@ class DataSegmentation
      * @param string $name
      * @param string $description
      * @param bool $refresh
-     * @return array
+     * @return array<mixed>
      */
     public function create_list(string $query_execution_id, string $name, string $description, bool $refresh): array
     {
@@ -161,7 +162,7 @@ class DataSegmentation
                 $this->sdk->getHttpClient()->post(
                     $this->api_uri . '/list/create',
                     $headers,
-                    $body
+                    $body?:''
                 )
             );
         }
@@ -177,7 +178,7 @@ class DataSegmentation
     /**
      * Get a list
      * @param string $id
-     * @return array
+     * @return array<mixed>
      */
     public function view_list(string $id): array
     {
@@ -206,7 +207,7 @@ class DataSegmentation
      * @param string $name
      * @param string $description
      * @param bool $refresh
-     * @return array
+     * @return array<mixed>
      */
     public function update_list(string $id, string $query_execution_id, string $name, string $description, bool $refresh): array
     {
@@ -217,7 +218,7 @@ class DataSegmentation
                 $this->sdk->getHttpClient()->put(
                     $this->api_uri . "/list/$id/update",
                     $headers,
-                    $body
+                    $body?:''
                 )
             );
         }
@@ -233,7 +234,7 @@ class DataSegmentation
     /**
      * Refresh a list
      * @param string $id
-     * @return array
+     * @return array<mixed>
      */
     public function refresh_list(string $id): array
     {
@@ -258,7 +259,7 @@ class DataSegmentation
     /**
      * Delete a list
      * @param string $id
-     * @return array
+     * @return array<mixed>
      */
     public function delete_list(string $id): array
     {
@@ -282,7 +283,7 @@ class DataSegmentation
 
     /**
      * Get list of databases
-     * @return array
+     * @return array<mixed>
      */
     public function get_databases(): array
     {
@@ -307,7 +308,7 @@ class DataSegmentation
     /**
      * Get list of tables for a database
      * @param string $database
-     * @return array
+     * @return array<mixed>
      */
     public function get_tables(string $database): array
     {

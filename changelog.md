@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [2.5.0] - 2023-06-07
 ### Added
 - Add endpoints for databases and tables
+- 
 
 ## [2.4.0] - 2023-06-01
 ### Added
