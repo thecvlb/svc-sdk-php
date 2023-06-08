@@ -30,22 +30,20 @@ class Sdk
 
     /**
      * @param AuthService $authService
-     * @param ClientBuilder|null $clientBuilder
-     * @param UriFactoryInterface|null $uriFactory
      * @throws \Exception
      */
-    public function __construct(AuthService $authService, ClientBuilder $clientBuilder = null, UriFactoryInterface $uriFactory = null)
+    public function __construct(AuthService $authService)
     {
         $this->app_name = $_ENV['APP_NAME'] ?? "Unknown App";
         $this->auth = $authService;
-        $this->clientBuilder = $clientBuilder ?: new ClientBuilder();
+        $this->clientBuilder = new ClientBuilder();
 
         /* You could set a base uri for all endpoints here.
          * However, since each service may have a different endpoint
          * a base uri is set in each of the service's class
          *
          */
-        $uriFactory = $uriFactory ?: Psr17FactoryDiscovery::findUriFactory();
+        $uriFactory = Psr17FactoryDiscovery::findUriFactory();
 
         /*
          * $this->clientBuilder->addPlugin(

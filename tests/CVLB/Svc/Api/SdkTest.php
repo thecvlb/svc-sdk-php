@@ -2,6 +2,7 @@
 
 namespace CVLB\Svc\Api;
 
+use CVLB\Svc\Api\Services\DataSegmentation\DataSegmentation;
 use CVLB\Svc\Api\Services\Logging\Logging;
 use CVLB\Svc\Api\Services\Notify\Notify;
 use Http\Client\Common\HttpMethodsClientInterface;
@@ -51,6 +52,20 @@ class SdkTest extends TestCase
         $sdk = new Sdk($mockAuthService, $mockClientBuilder);
 
         $this->assertInstanceOf(Notify::class, $sdk->notify());
+    }
+
+    public function testDse()
+    {
+        $_ENV['APP_ENV'] = 'local';
+        $mockAuthService = Mockery::mock(AuthService::class);
+        $mockAuthService->allows('getAccessToken');
+
+        $mockClientBuilder = Mockery::mock(ClientBuilder::class);
+        $mockClientBuilder->allows('addPlugin');
+
+        $sdk = new Sdk($mockAuthService, $mockClientBuilder);
+
+        $this->assertInstanceOf(DataSegmentation::class, $sdk->dse());
     }
 
     public function testGetAUth()

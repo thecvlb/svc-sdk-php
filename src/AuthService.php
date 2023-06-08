@@ -9,7 +9,7 @@ use Redis;
 class AuthService
 {
     /**
-     * @var array
+     * @var array{local: string, development: string, stage: string, production: string}
      */
     private $auth_endpoints = [
         'local' =>          'https://svc-lifemd-dev.auth.us-west-2.amazoncognito.com',
@@ -41,7 +41,7 @@ class AuthService
 
     /**
      * @param Redis $redis
-     * @param array $credentials
+     * @param array{client_id: string, client_secret: string} $credentials
      * @throws \RedisException
      */
     public function __construct(Redis $redis, array $credentials)
@@ -127,7 +127,7 @@ class AuthService
 
     /**
      * @param string $client_id
-     * @return array
+     * @return array{client_id: string, grant_type: string}
      */
     private function setBody(string $client_id): array
     {
@@ -140,7 +140,7 @@ class AuthService
     /**
      * @param string $client_id
      * @param string $client_secret
-     * @return array
+     * @return array{string, string}
      */
     private function setHeaders(string $client_id, string $client_secret): array
     {
@@ -152,8 +152,8 @@ class AuthService
 
     /**
      * @param string $endpoint
-     * @param array $headers
-     * @param array $fields
+     * @param array{string, string} $headers
+     * @param array{client_id: string, grant_type: string} $fields
      * @return string
      */
     public function makeCurlRequest(string $endpoint, array $headers, array $fields): string
@@ -171,6 +171,6 @@ class AuthService
 
         curl_close($ch);
 
-        return $response;
+        return is_bool($response) ? '' : $response;
     }
 }

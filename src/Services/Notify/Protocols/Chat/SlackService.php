@@ -3,6 +3,8 @@
 namespace CVLB\Svc\Api\Services\Notify\Protocols\Chat;
 
 use CVLB\Svc\Api\HttpClient\Message\ResponseMediator;
+use Laminas\Diactoros\StreamFactory;
+use Yaf\Request\Http;
 
 final class SlackService extends AbstractChatService
 {
@@ -32,9 +34,9 @@ final class SlackService extends AbstractChatService
     }
 
     /**
-     * @param array $message
-     * @param array $destination
-     * @return array
+     * @param array<mixed> $message
+     * @param array{slack_channel: string} $destination
+     * @return array<mixed>
      * @throws \Http\Client\Exception
      */
     public function send(array $message, array $destination): array
@@ -47,7 +49,7 @@ final class SlackService extends AbstractChatService
                 $this->notify->sdk->getHttpClient()->post(
                     $this->api_uri,
                     $headers,
-                    $body
+                    $body?:''
                 )
             );
         }
@@ -58,9 +60,9 @@ final class SlackService extends AbstractChatService
     }
 
     /**
-     * @param array $message
-     * @param array $destination
-     * @return array
+     * @param array<mixed> $message
+     * @param array{slack_channel: string} $destination
+     * @return array{message: array<mixed>, slack_channel: string, verbose: bool}
      */
     public function setBody(array $message, array $destination): array
     {

@@ -21,7 +21,7 @@ class Notify
     public static string $base_uri;
 
     /**
-     * @var array
+     * @var array{local: string, development: string, stage: string, production: string}
      */
     private static array $notify_endpoints = [
         'local' =>          'https://svc.notify.dev.prm-lfmd.com',

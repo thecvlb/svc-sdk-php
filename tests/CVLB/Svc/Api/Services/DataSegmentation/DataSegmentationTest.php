@@ -246,4 +246,42 @@ class DataSegmentationTest extends TestCase
         $this->assertEquals('Error', $response['message']);
         $this->assertEquals(500, $response['code']);
     }
+
+    public function testGet_databases()
+    {
+        $dse = $this->getDse();
+
+        $response = $dse->get_databases();
+        $this->assertIsArray($response);
+    }
+
+    public function testGet_databasesException()
+    {
+        $dse = $this->getDseException();
+
+        $response = $dse->get_databases();
+        $this->assertIsArray($response);
+        $this->assertFalse($response['success']);
+        $this->assertEquals('Error', $response['message']);
+        $this->assertEquals(500, $response['code']);
+    }
+
+    public function testGet_tables()
+    {
+        $dse = $this->getDse();
+
+        $response = $dse->get_tables('1234-abcd');
+        $this->assertIsArray($response);
+    }
+
+    public function testGet_tablesException()
+    {
+        $dse = $this->getDseException();
+
+        $response = $dse->get_tables('1234-abcd');
+        $this->assertIsArray($response);
+        $this->assertFalse($response['success']);
+        $this->assertEquals('Error', $response['message']);
+        $this->assertEquals(500, $response['code']);
+    }
 }

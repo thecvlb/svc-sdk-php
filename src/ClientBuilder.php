@@ -8,26 +8,37 @@ use Http\Client\Common\Plugin;
 use Http\Client\Common\PluginClientFactory;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 
 class ClientBuilder
 {
-    private $httpClient;
-    private $requestFactoryInterface;
-    private $streamFactoryInterface;
+    /**
+     * @var ClientInterface|\Http\Client\HttpClient
+     */
+    private ClientInterface $httpClient;
 
-    private $plugins = [];
+    /**
+     * @var RequestFactoryInterface
+     */
+    private RequestFactoryInterface $requestFactoryInterface;
 
-    public function __construct(
-        ClientInterface $httpClient = null,
-        RequestFactoryInterface $requestFactoryInterface = null,
-        StreamFactoryInterface $streamFactoryInterface = null
-    ) {
-        $this->httpClient = $httpClient ?: HttpClientDiscovery::find();
-        $this->requestFactoryInterface = $requestFactoryInterface ?: Psr17FactoryDiscovery::findRequestFactory();
-        $this->streamFactoryInterface = $streamFactoryInterface ?: Psr17FactoryDiscovery::findStreamFactory();
+    /**
+     * @var StreamFactoryInterface|null
+     */
+    private ?StreamFactoryInterface $streamFactoryInterface;
+
+    /**
+     * @var array<mixed>
+     */
+    private array $plugins = [];
+
+    public function __construct() {
+        $this->httpClient = HttpClientDiscovery::find();
+        $this->requestFactoryInterface = Psr17FactoryDiscovery::findRequestFactory();
+        $this->streamFactoryInterface = Psr17FactoryDiscovery::findStreamFactory();
     }
 
     public function addPlugin(Plugin $plugin): void

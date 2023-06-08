@@ -32,9 +32,9 @@ final class TwilioService extends AbstractSmsService
     }
 
     /**
-     * @param array $message
-     * @param array $destination
-     * @return array
+     * @param array{text: string} $message
+     * @param array{to: string, from: string} $destination
+     * @return array<mixed>
      * @throws \Http\Client\Exception
      */
     public function send(array $message, array $destination): array
@@ -47,7 +47,7 @@ final class TwilioService extends AbstractSmsService
                 $this->notify->sdk->getHttpClient()->post(
                     $this->api_uri,
                     $headers,
-                    $body
+                    $body?:''
                 )
             );
         }
@@ -58,9 +58,9 @@ final class TwilioService extends AbstractSmsService
     }
 
     /**
-     * @param array $message
-     * @param array $destination
-     * @return array
+     * @param array{text: string} $message
+     * @param array{to: string, from: string} $destination
+     * @return array{message: string, from: string, to: string, verbose: bool}
      */
     public function setBody(array $message, array $destination): array
     {

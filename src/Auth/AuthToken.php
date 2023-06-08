@@ -7,15 +7,15 @@ class AuthToken
     /**
      * @var string
      */
-    private $token;
+    private string $token;
 
     /**
      * @var int
      */
-    private $expires_in;
+    private int $expires_in;
 
     /**
-     * @param array $token
+     * @param array{access_token: string, expires_in: int} $token
      */
     public function __construct(array $token)
     {

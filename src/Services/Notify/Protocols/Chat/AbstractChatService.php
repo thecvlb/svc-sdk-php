@@ -32,9 +32,9 @@ abstract class AbstractChatService extends AbstractProtocol
     /**
      * Send message
      * Message and destination structure are specific to service
-     * @param array $message
-     * @param array $destination
-     * @return array
+     * @param array<mixed> $message
+     * @param array{slack_channel: string} $destination
+     * @return array{success: bool, code: int, message: string}
      */
     abstract public function send(array $message, array $destination): array;
 }

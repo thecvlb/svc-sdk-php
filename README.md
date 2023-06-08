@@ -120,6 +120,10 @@ $svc->dse()->delete_list('abcd-1234');
 $svc->dse()->get_lists();
 $svc->dse()->search_lists('description', 'up');
 $svc->dse()->refresh_lists();
+
+// Get data sources
+$svc->dse()->get_databases();
+$svc->dse()->get_tables('prm-database');
 ```
 
 ## Notify

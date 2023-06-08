@@ -30,9 +30,9 @@ abstract class AbstractEmailService extends AbstractProtocol
     abstract static function getInstance(Email $email): object;
 
     /**
-     * @param array $message
-     * @param array $destination
-     * @return array
+     * @param array{email_subject: string, email_html_message: string, email_text_message: string} $message
+     * @param array{from_name: string, from_address: string, to_name?: string, to_address: string, bcc?: array<string>} $destination
+     * @return array{success: bool, code: int, message: string}
      */
     abstract public function send(array $message, array $destination): array;
 }

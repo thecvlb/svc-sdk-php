@@ -23,7 +23,7 @@ class Logging
     private string $api_uri;
 
     /**
-     * @var array
+     * @var array{local: string, development: string, stage: string, production: string}
      */
     private static array $logging_endpoints = [
         'local' =>          'https://svc.logging.dev.prm-lfmd.com',
@@ -49,15 +49,23 @@ class Logging
 
     /**
      * @param string $message
-     * @param array $context
+     * @param array<mixed> $context
      * @param int $level
-     * @return array
+     * @return array<mixed>
      * @throws \Http\Client\Exception
      */
     public function put(string $message, array $context = [], int $level = 200): array
     {
         try {
-            return ResponseMediator::getContent($this->sdk->getHttpClient()->post($this->api_uri . '/log/queue-msg', [], json_encode($this->setData($message, $context, $level))));
+            $headers = [];
+            $body = json_encode($this->setData($message, $context, $level));
+
+            return ResponseMediator::getContent($this->sdk->getHttpClient()->post(
+                    $this->api_uri . '/log/queue-msg',
+                    $headers,
+                $body?:''
+                )
+            );
         }
         catch (\Exception $e) {
             // Log request failed, log this error in server logs
@@ -70,9 +78,9 @@ class Logging
 
     /**
      * @param string $message
-     * @param array $context
+     * @param array<mixed> $context
      * @param int $level
-     * @return array
+     * @return array{message: string, level: int, context: array<mixed>, dd: array<mixed>}
      */
     private function setData(string $message, array $context, int $level): array
     {
@@ -86,8 +94,8 @@ class Logging
 
     /**
      * Get merge meta data for logs
-     * @param array $context
-     * @return array
+     * @param array<mixed> $context
+     * @return array<mixed>
      */
     private function getContext(array $context): array
     {
@@ -111,23 +119,22 @@ class Logging
      * If DataDog is no longer used, this method
      * and any calls to it should be removed
      *
-     * @return array|string[][]
+     * @param string $func
+     * @return array{trace_id: string, span_id: string, version: string, env: string}
+     * @see https://docs.datadoghq.com/tracing/other_telemetry/connect_logs_and_traces/php/
      */
-    private function getDataDogContext(): array
+    private function getDataDogContext(string $func = '\DDTrace\current_context'): array
     {
-        /*
-         * This function is required
-         */
-        $func = '\DDTrace\current_context';
-
         // Top level element to be added to log record array
-        $dataDog = ['trace_id' => '', 'span_id'  => ''];
+        $dataDog = ['trace_id' => '', 'span_id'  => '', 'version' => '', 'env' => ''];
 
         // If DD agent, call current_context() to get the trace and span
         if (is_callable($func)) {
             $dd_context = call_user_func($func);
             $dataDog['trace_id'] = $dd_context['trace_id'] ?? '';
             $dataDog['span_id'] = $dd_context['span_id'] ?? '';
+            $dataDog['version'] = $dd_context['version'] ?? '';
+            $dataDog['env'] = $dd_context['env'] ?? '';
         }
 
         return $dataDog;
@@ -144,11 +151,11 @@ class Logging
 
     /**
      * Get ip from hostname
-     * @return string|null
+     * @return string
      */
-    private function getHostname(): ?string
+    private function getHostname(): string
     {
-        $ips = explode(' ', shell_exec('hostname'));
-        return str_replace(' ', '_', $ips[0]) ?? null;
+        $ips = explode(' ', shell_exec('hostname')??'');
+        return str_replace(' ', '_', $ips[0]);
     }
 }
