@@ -7,10 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
-## [2.5.0] - 2023-06-07
+## [2.5.0] - 2023-06-08
 ### Added
 - Add endpoints for databases and tables
-- 
+- Fixed issues found with PHPStan level 8
 
 ## [2.4.0] - 2023-06-01
 ### Added
