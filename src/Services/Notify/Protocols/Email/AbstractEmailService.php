@@ -31,7 +31,7 @@ abstract class AbstractEmailService extends AbstractProtocol
 
     /**
      * @param array{email_subject: string, email_html_message: string, email_text_message: string} $message
-     * @param array{from_name: string, from_address: string, to_name?: string, to_address: string, bcc?: array<string>} $destination
+     * @param array{from_name: string, from_address: string, to_name?: string, to_address: string, cc?: array<array{to: string, address: string}>, bcc?: array<array{to: string, address: string}>} $destination
      * @return array{success: bool, code: int, message: string}
      */
     abstract public function send(array $message, array $destination): array;
