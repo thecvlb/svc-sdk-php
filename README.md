@@ -164,7 +164,10 @@ Send emails with AWS SES. The `from_address` must be a verified entity in SES ac
 $destination = [
     'from_name' => 'SVC SDK',
     'from_address' => 'no-reply@dev.prm-lfmd.com',
-    'to_address' => 'test@lifemd.com'
+    'to_name' => 'John Doe', // optional
+    'to_address' => 'test@lifemd.com',
+    'cc' => [['address' => 'test@cc.com', 'to' => 'Jane Doe']], // 'to' is optional
+    'bcc' => [['address' => 'test@bcc.com']] // 'to' is optional
 ];
 $message = [
     'email_subject' => 'SDK SES Email',
@@ -178,9 +181,15 @@ $svc->notify()->email()->ses()->send($message, $destination);
 #### Response
 ```json
 {
-  "success": true,
-  "code": 200,
-  "message": "SES message received"
+  "PublishResponse": {
+    "PublishResult": {
+      "MessageId": "9c57ff86-4c4c-5df8-ae0f-a28242203f08",
+      "SequenceNumber": null
+    },
+    "ResponseMetadata": {
+      "RequestId": "fb61d2d9-c98e-594b-b616-8fddc7e2dbbb"
+    }
+  }
 }
 ```
 
