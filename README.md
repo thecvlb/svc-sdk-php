@@ -166,8 +166,12 @@ $destination = [
     'from_address' => 'no-reply@dev.prm-lfmd.com',
     'to_name' => 'John Doe', // optional
     'to_address' => 'test@lifemd.com',
-    'cc' => [['address' => 'test@cc.com', 'to' => 'Jane Doe']], // 'to' is optional
-    'bcc' => [['address' => 'test@bcc.com']] // 'to' is optional
+    'cc' => [ // optional
+        ['address' => 'test@cc.com', 'to' => 'Jane Doe'] // 'to' is optional
+    ], 
+    'bcc' => [ // optional
+        ['address' => 'test@bcc.com'] // 'to' is optional
+    ] 
 ];
 $message = [
     'email_subject' => 'SDK SES Email',
