@@ -92,7 +92,9 @@ class SesServiceTest extends TestCase
         $destination = [
             'from_name' => 'test from',
             'from_address' => 'test@from.com',
-            'to_address' => 'test@to.com'
+            'to_address' => 'test@to.com',
+            'cc' => [['to' => 'Joe', 'address' => 'test@cc.com']],
+            'bcc' => [['to' => 'John', 'address' => 'test@bcc.com']]
         ];
 
         $message = [
@@ -104,6 +106,7 @@ class SesServiceTest extends TestCase
         $response = $service->send($message, $destination);
 
         $this->assertIsArray($response);
+        $this->assertEquals('OK', $response[0]); // Mocked response
     }
 
     public function testSendException()
@@ -140,7 +143,9 @@ class SesServiceTest extends TestCase
         $destination = [
             'ERROR' => 'test from',
             'from_address' => 'test@from.com',
-            'to_address' => 'test@to.com'
+            'to_address' => 'test@to.com',
+            'cc' => [['to' => 'Joe', 'address' => 'test@cc.com']],
+            'bcc' => [['to' => 'John', 'address' => 'test@bcc.com']]
         ];
 
         $message = [

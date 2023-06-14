@@ -34,7 +34,7 @@ final class SesService extends AbstractEmailService
 
     /**
      * @param array{email_subject: string, email_html_message: string, email_text_message: string} $message
-     * @param array{from_name: string, from_address: string, to_address: string} $destination
+     * @param array{from_name: string, from_address: string, to_address: string, cc?: array<array{to: string, address: string}>, bcc?: array<array{to: string, address: string}>} $destination
      * @return array<mixed>
      * @throws \Http\Client\Exception
      */
@@ -60,8 +60,8 @@ final class SesService extends AbstractEmailService
 
     /**
      * @param array{email_subject: string, email_html_message: string, email_text_message: string} $message
-     * @param array{from_name: string, from_address: string, to_name?: string, to_address: string, bcc?: array<string>} $destination
-     * @return array{from_name: string, from_address: string, to_name: string, to_address: string, bcc: array<string>, email_subject: string, email_base64_html_message: string, email_text_message: string, verbose: bool}
+     * @param array{from_name: string, from_address: string, to_name?: string, to_address: string, cc?: array<array{to: string, address: string}>, bcc?: array<array{to: string, address: string}>} $destination
+     * @return array{from_name: string, from_address: string, to_name: string, to_address: string, cc: array<mixed>, bcc: array<mixed>, email_subject: string, email_base64_html_message: string, email_text_message: string, verbose: bool}
      */
     public function setBody(array $message, array $destination): array
     {
@@ -70,6 +70,7 @@ final class SesService extends AbstractEmailService
             'from_address' => $destination['from_address'],
             'to_name' => $destination['to_name'] ?? '',
             'to_address' => $destination['to_address'],
+            'cc' => $destination['cc'] ?? [],
             'bcc' => $destination['bcc'] ?? [],
             'email_subject' => $message['email_subject'],
             'email_base64_html_message' => base64_encode($message['email_html_message']),

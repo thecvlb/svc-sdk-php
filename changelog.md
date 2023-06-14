@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.6.0] - 2023-06-14
+### Added
+- Add CC option to SES
+
 ## [2.5.0] - 2023-06-08
 ### Added
 - Add endpoints for databases and tables
