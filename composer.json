@@ -23,5 +23,10 @@
         "psr-4": {
             "CVLB\\Svc\\Api\\": "src/"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }
