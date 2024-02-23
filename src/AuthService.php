@@ -39,17 +39,25 @@ class AuthService
      */
     private string $access_token_key = 'svclifemd-access-token';
 
+
     /**
      * @param Redis $redis
      * @param array{client_id: string, client_secret: string} $credentials
+     * @param callable $connect
      * @throws \RedisException
      */
-    public function __construct(Redis $redis, array $credentials)
+    public function __construct(Redis $redis, array $credentials, callable $connect = null)
     {
         $this->endpoint = $this->auth_endpoints[$_ENV['APP_ENV']] ?? $this->auth_endpoints['development'];
         $this->credentials = $credentials;
         $this->cache = $redis;
-        $this->cache->connect($_ENV['REDIS_HOST'] ?? 'localhost');
+        if (!empty($connect)) {
+            // allow to specify how to connect to cache
+            $connect($this->cache);
+        } else {
+            // default connection method
+            $this->cache->connect($_ENV['REDIS_HOST'] ?? 'localhost');
+        }
     }
 
     /**

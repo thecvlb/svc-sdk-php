@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - yyyy-mm-dd
 ### Added
+- Allow custom way to connect to redis
 ### Changed
 ### Fixed
 
