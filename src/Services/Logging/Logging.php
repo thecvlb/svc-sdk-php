@@ -142,9 +142,9 @@ class Logging
 
     /**
      * Get an ip for this instance
-     * @return string|null
+     * @return string
      */
-    private function findInstanceIp(): ?string
+    private function findInstanceIp(): string
     {
         return $_SERVER['SERVER_ADDR'] ?? $this->getHostname();
     }

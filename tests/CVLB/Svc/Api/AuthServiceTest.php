@@ -77,4 +77,26 @@ class AuthServiceTest extends TestCase
 
         $this->assertEmpty($result);
     }
+
+    public function testCustomRedisConnection()
+    {
+        $_ENV['APP_ENV'] = 'local';
+        $expectedValue = 'teststring';
+
+        $mockRedis = Mockery::mock(\Redis::class);
+        $mockRedis->shouldReceive('connect')->once();
+        $mockRedis->shouldReceive('get')
+        ->andReturn($expectedValue);
+
+        $authService = new AuthService(
+            $mockRedis,
+            $this->credentials,
+            function($mockRedis) {
+                $mockRedis->connect('localhost');
+            }
+        );
+
+        // AuthService fetches access token from cache
+        $this->assertEquals($expectedValue, $authService->getAccessToken());
+    }
 }

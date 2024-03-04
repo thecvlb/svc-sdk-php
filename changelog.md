@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.7.0] - 2024-03-04
+### Added
+- Allow custom way to connect to redis
+
 ## [2.6.0] - 2023-06-14
 ### Added
 - Add CC option to SES
