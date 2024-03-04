@@ -4,9 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased] - yyyy-mm-dd
 ### Added
-- Allow custom way to connect to redis
 ### Changed
 ### Fixed
+
+## [2.7.0] - 2024-03-04
+### Added
+- Allow custom way to connect to redis
 
 ## [2.6.0] - 2023-06-14
 ### Added
