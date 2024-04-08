@@ -155,7 +155,9 @@ class Logging
      */
     private function getHostname(): string
     {
-        $ips = explode(' ', shell_exec('hostname')??'');
+        if (!$hostname = shell_exec('hostname'))
+            $hostname = '';
+        $ips = explode(' ', $hostname);
         return str_replace(' ', '_', $ips[0]);
     }
 }
