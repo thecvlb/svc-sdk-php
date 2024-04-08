@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1709581998">
-  <project timestamp="1709581998">
+<coverage generated="1712609854">
+  <project timestamp="1712609854">
     <file name="/home/runner/work/svc-sdk-php/svc-sdk-php/src/Auth/AuthToken.php">
       <class name="CVLB\Svc\Api\Auth\AuthToken" namespace="global">
         <metrics complexity="5" methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="11" coveredelements="11"/>
@@ -273,7 +273,7 @@
     </file>
     <file name="/home/runner/work/svc-sdk-php/svc-sdk-php/src/Services/Logging/Logging.php">
       <class name="CVLB\Svc\Api\Services\Logging\Logging" namespace="global">
-        <metrics complexity="10" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="36" elements="48" coveredelements="42"/>
+        <metrics complexity="11" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="37" elements="50" coveredelements="42"/>
       </class>
       <line num="43" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
       <line num="45" type="stmt" count="3"/>
@@ -320,10 +320,12 @@
       <line num="140" type="stmt" count="2"/>
       <line num="147" type="method" name="findInstanceIp" visibility="private" complexity="1" crap="1" count="2"/>
       <line num="149" type="stmt" count="2"/>
-      <line num="156" type="method" name="getHostname" visibility="private" complexity="1" crap="1" count="2"/>
+      <line num="156" type="method" name="getHostname" visibility="private" complexity="2" crap="2.06" count="2"/>
       <line num="158" type="stmt" count="2"/>
-      <line num="159" type="stmt" count="2"/>
-      <metrics loc="161" ncloc="101" classes="1" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="36" elements="48" coveredelements="42"/>
+      <line num="159" type="stmt" count="0"/>
+      <line num="160" type="stmt" count="2"/>
+      <line num="161" type="stmt" count="2"/>
+      <metrics loc="163" ncloc="103" classes="1" methods="7" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="37" elements="50" coveredelements="42"/>
     </file>
     <file name="/home/runner/work/svc-sdk-php/svc-sdk-php/src/Services/Notify/Notify.php">
       <class name="CVLB\Svc\Api\Services\Notify\Notify" namespace="global">
@@ -561,6 +563,6 @@
       <line num="72" type="stmt" count="3"/>
       <metrics loc="74" ncloc="49" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="20" elements="23" coveredelements="23"/>
     </file>
-    <metrics files="20" loc="1655" ncloc="1083" classes="20" methods="77" coveredmethods="76" conditionals="0" coveredconditionals="0" statements="363" coveredstatements="358" elements="440" coveredelements="434"/>
+    <metrics files="20" loc="1657" ncloc="1085" classes="20" methods="77" coveredmethods="75" conditionals="0" coveredconditionals="0" statements="365" coveredstatements="359" elements="442" coveredelements="434"/>
   </project>
 </coverage>

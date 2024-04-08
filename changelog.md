@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.8.0] - 2024-04-08
+### Changed
+- Updated package laminas/laminas-diactoros to 2.26.0
+
 ## [2.7.0] - 2024-03-04
 ### Added
 - Allow custom way to connect to redis
