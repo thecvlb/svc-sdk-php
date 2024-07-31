@@ -8,9 +8,9 @@ class ResponseMediator
 {
     /**
      * @param ResponseInterface $response
-     * @return array<mixed>
+     * @return null|array<mixed>
      */
-    public static function getContent(ResponseInterface $response): array
+    public static function getContent(ResponseInterface $response): null|array
     {
         return json_decode($response->getBody()->getContents(), true);
     }
