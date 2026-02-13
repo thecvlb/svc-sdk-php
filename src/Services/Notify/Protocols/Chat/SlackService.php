@@ -3,7 +3,7 @@
 namespace CVLB\Svc\Api\Services\Notify\Protocols\Chat;
 
 use CVLB\Svc\Api\HttpClient\Message\ResponseMediator;
-use Laminas\Diactoros\StreamFactory;
+
 use Yaf\Request\Http;
 
 final class SlackService extends AbstractChatService
