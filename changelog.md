@@ -7,6 +7,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 ### Fixed
 
+## [2.9.0] - 2026-02-13
+### Changed
+- Allow laminas/laminas-diactoros ^3.0 for PHP 8.4/8.5 compatibility
+- Drop PHP 7.4 support (EOL)
+- Remove unused Laminas\Diactoros\StreamFactory import from SlackService
+
 ## [2.8.0] - 2024-04-08
 ### Changed
 - Updated package laminas/laminas-diactoros to 2.26.0
