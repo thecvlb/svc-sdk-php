@@ -44,7 +44,6 @@ class AuthService
      * @param Redis $redis
      * @param array{client_id: string, client_secret: string} $credentials
      * @param callable $connect
-     * @throws \RedisException
      */
     public function __construct(Redis $redis, array $credentials, callable $connect = null)
     {
@@ -54,9 +53,6 @@ class AuthService
         if (!empty($connect)) {
             // allow to specify how to connect to cache
             $connect($this->cache);
-        } else {
-            // default connection method
-            $this->cache->connect($_ENV['REDIS_HOST'] ?? 'localhost');
         }
     }
 
