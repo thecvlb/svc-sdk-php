@@ -54,9 +54,6 @@ class AuthService
         if (!empty($connect)) {
             // allow to specify how to connect to cache
             $connect($this->cache);
-        } else {
-            // default connection method
-            $this->cache->connect($_ENV['REDIS_HOST'] ?? 'localhost');
         }
     }
 
